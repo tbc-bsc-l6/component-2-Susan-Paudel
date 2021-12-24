@@ -11,7 +11,7 @@
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label class="form-label">Product Type:</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="type" aria-label="Default select example">
                     <option selected>Open this select menu</option>
                     <option value="cd">CD</option>
                     <option value="game">GAME</option>
@@ -20,11 +20,11 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="fname" class="form-label">First Name: </label>
-                <input type="text" class="form-control" id="fname" aria-describedby="firstname" name="firstname">
+                <input type="text" class="form-control" id="fname" aria-describedby="firstname" name="Firstname">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="Main" class="form-label">Main Name/ Surname: </label>
-                <input type="text" class="form-control" id="Main" aria-describedby="Surname" name="Surname:">
+                <input type="text" class="form-control" id="Main" aria-describedby="Surname" name="Surname">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="Title" class="form-label">Title: </label>
@@ -32,11 +32,11 @@
             </div>
             <div class="col-md-6 mb-3">
                 <label for="fname" class="form-label">Pages/Duration/PEGI: </label>
-                <input type="text" class="form-control" id="fname" aria-describedby="emailHelp" name="Pages/Duration/PEGI:">
+                <input type="text" class="form-control" id="pdp" aria-describedby="emailHelp" name="PagesDurationPEGI">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="price" class="form-label">Price: </label>
-                <input type="text" class="form-control" id="fname" aria-describedby="price" name="price">
+                <input type="text" class="form-control" id="price" aria-describedby="price" name="Price">
             </div>
 
         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Rcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/home', function () {
-    return view('HomePage');
+    return view('own/HomePage');
 });
 
 
@@ -34,3 +35,8 @@ Route::get('/nav',function(){
 Route::get('/footer',function(){
     return view('own.footer');
 });
+route::get('/navbody',function(){
+    return view('own/navbody');
+});
+
+Route::get('/insertform',[Rcontroller::class,'create']);

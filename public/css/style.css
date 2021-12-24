@@ -110,3 +110,11 @@ h1{
 .section-1{
     border-bottom: 1px solid white;
 }
+.line{
+    height:3px;
+    background-color: #232f3e;
+
+}
+.nav_bar{
+    margin-bottom: 100px;
+}

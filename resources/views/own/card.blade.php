@@ -13,6 +13,16 @@
                       <p class="user-select-none">Price:$11</p>
                   </div>
                   <a href="#" class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></a>
+                  <div class="row py-2">
+                      <div class="col-6 ">
+                        <a href="#" class="btn btn-warning w-100"><i class="fas fas-pencil" aria-hidden="true"></i>Edit</a>
+                      </div>
+                    <div class="col-6">
+                        <a href="#" class="btn btn-warning w-100"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
+                    </div>
+                    
+                  </div>
+                  
                 </div>
            </div>   
         </a>

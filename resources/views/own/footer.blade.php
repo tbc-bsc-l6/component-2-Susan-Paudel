@@ -1,10 +1,8 @@
-@extends('Layout')
-@section('content')
     <div class="container-fluid footer">
         <div class="container">
             <div class="row text-white">
-                <div class="col-md-12 section-1">
-                   <a href="http://"><p class="text-center py-2 text-white text-uppercase">BACK TO TOP</p></a> 
+                <div class="col-md-12 section-1 pt-3">
+                   <a href="#nav"><p class="text-center py-2 text-white text-uppercase">BACK TO TOP</p></a> 
                 </div>
                 <div class="col-md-4 py-3">
                     <h2>
@@ -37,4 +35,3 @@
 
         </div>
     </div>
-@endsection
