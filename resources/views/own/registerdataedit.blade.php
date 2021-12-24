@@ -1,7 +1,7 @@
 @extends('Layout')
 @section('content')
 <div class="container py-3">
-    <form method="POST" action="/update" class="shadow register">
+    <form method="POST" action="/update/{{$editdata->id}}" class="shadow register">
       @csrf
        <input type="hidden" name="id" value="{{$editdata->id}}">
         <div class="mb-3">

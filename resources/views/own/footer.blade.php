@@ -8,19 +8,19 @@
                 </div>
                 <div class="col-md-4 py-3">
                     <h2>
-                        Logo:
+                        Logo
                     </h2>
                 </div>
                 <div class="col-md-4 py-3">
-                    <h2>Social Links:</h2>
+                    <h2>Social Links</h2>
                     <div class="link">
-                       <a href="#"><i class="fab fa-facebook-square fa-3x"></i></a> 
-                        <a href="#"><i class="fab fa-instagram-square fa-3x"></i></a>
-                        <a href="#"><i class="fab fa-twitter-square fa-3x"></i></a>
+                       <a href="#"><i class="fab fa-facebook-square fa-3x me-4"></i></a> 
+                        <a href="#"><i class="fab fa-instagram-square fa-3x me-4"></i></a>
+                        <a href="#"><i class="fab fa-twitter-square fa-3x me-4"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4 py-3">
-                    <h2>Location:</h2>
+                    <h2>Location</h2>
                     <div class="location">
                         <div style="width: 100%"><iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=british%20college,nepal+(M)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/car-satnav-gps/">best car gps</a></iframe></div>
                     </div>
