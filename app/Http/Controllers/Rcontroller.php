@@ -14,7 +14,7 @@ class Rcontroller extends Controller
      */
     public function index()
     {
-        return view('allproduct',['data'=>product::all()]);
+        return view('admin/allproduct',['data'=>product::all()]);
     }
 
     /**
@@ -24,7 +24,7 @@ class Rcontroller extends Controller
      */
     public function create()
     {
-        return view('own/productInsert');
+        return view('admin/productInsert');
     }
 
     /**
@@ -35,7 +35,10 @@ class Rcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['Firstname'=>'required','type'=>'required','Surname'=>'required','Title'=>'required','Pages/Duration/PEGI'=>'required','Price'=>'required']);
+        $request->validate(['Firstname'=>'required','type'=>'required | not_in:choose','Surname'=>'required','Title'=>'required','PagesDurationPEGI'=>'required','Price'=>'required','image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+        $Imagename=time().$request->image->extension();
+        $request->image->move(public_path('images'),$Imagename);
+       
         $data=new product;
        
         $data->firstname=$request->Firstname;
@@ -44,9 +47,10 @@ class Rcontroller extends Controller
         $data->title=$request->Title;
         $data->pdp=$request->PagesDurationPEGI;
         $data->price=$request->Price;
+        $data->Image=$Imagename;
         $insert=$data->save();
         if($insert){
-            return back()->with('success',"prodcut inserted");
+            return redirect('/allproduct');
         }else{
             return back()->with('error','data insert unsuccessfull');
         }
@@ -71,7 +75,7 @@ class Rcontroller extends Controller
      */
     public function edit($id)
     {
-        return view('productdataedit',['editdata'=>product::find($id)]);
+        return view('admin/productedit',['editdata'=>product::find($id)]);
     }
 
     /**
@@ -83,18 +87,21 @@ class Rcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate(['Firstname'=>'required','type'=>'required','Surname'=>'required','Title'=>'required','Pages/Duration/PEGI'=>'required','Price'=>'required']);
+        $request->validate(['Firstname'=>'required','type'=>'required','Surname'=>'required','Title'=>'required','PagesDurationPEGI'=>'required','Price'=>'required','image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+        $Imagename=time().$request->image->extension();
+        $request->image->move(public_path('images'),$Imagename);
         $data=product::find($id);
-       
+        
         $data->firstname=$request->Firstname;
         $data->mainname=$request->Surname;
         $data->producttype=$request->type;
         $data->title=$request->Title;
         $data->pdp=$request->PagesDurationPEGI;
         $data->price=$request->Price;
+        $data->Image=$Imagename;
         $insert=$data->save();
         if($insert){
-            return back()->with('success', $request->name." !Please check your email to varify your account. ");
+            return redirect('allproduct');
         }else{
             return back()->with('error','data insert unsuccessfull');
         }
@@ -109,6 +116,6 @@ class Rcontroller extends Controller
     public function destroy($id)
     {
         product::find($id)->delete();
-        return redirect('/alldata');
+        return redirect('allproduct');
     }
 }

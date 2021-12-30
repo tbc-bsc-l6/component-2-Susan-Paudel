@@ -30,4 +30,4 @@
      
     </tbody>
   </table>   
-@endsection
+  @endsection

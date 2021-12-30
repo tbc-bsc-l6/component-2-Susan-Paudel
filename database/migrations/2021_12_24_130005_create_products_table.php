@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('firstname');
             $table->string('title');
             $table->string('price');
+            $table->string('Image');
             $table->timestamps();
         });
     }
