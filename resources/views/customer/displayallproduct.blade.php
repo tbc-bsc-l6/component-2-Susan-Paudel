@@ -13,7 +13,12 @@
                      <p class="user-select-none">{{$item->pdp}}</p>
                      <p class="user-select-none">&#163;{{$item->price}}</p>
                  </div>
-                 <a href="#" class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></a>
+                 <form action="/addtocart" method="POST">
+                   @csrf
+                   <input type="hidden" value="{{$item->id}}">
+                  <button class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></button>
+                 </form>
+                
                </div>
           </div>   
       

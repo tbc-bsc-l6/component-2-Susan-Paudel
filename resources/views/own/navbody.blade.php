@@ -33,7 +33,7 @@
       <span class="visually-hidden">Next</span>
     </button>
 </div>
-<div class="container py-4">
+<div class="container py-5">
     <div class="row">
         <div class="col-md-12 mx-auto">
             <h1 class="text-center py-3">OUR PRODUCTS</h1>
@@ -41,14 +41,14 @@
         </div>
     </div>
     <div class="row our-product py-5">
-        <div class="col-md-4 justify-content-center d-flex">
-            <a href=""><img src="{{asset('Images/icones/open-book.png')}}" alt="img-fluid"></a>
+        <div class="col-md-4 justify-content-center d-flex py-5">
+            <a href="{{route('book')}}"><img src="{{asset('Images/icones/open-book.png')}}" alt="img-fluid"></a>
         </div>
-        <div class="col-md-4 justify-content-center d-flex">
-            <a href=""><img src="{{asset('Images/icones/cd-player.png')}}" class="mt-3" alt="img-fluid"></a>
+        <div class="col-md-4 justify-content-center d-flex py-5">
+            <a href="{{route('cd')}}"><img src="{{asset('Images/icones/cd-player.png')}}" class="mt-3" alt="img-fluid"></a>
         </div>
-        <div class="col-md-4 justify-content-center d-flex">
-            <a href=""><img src="{{asset('Images/icones/game-console.png')}}" class="mt-3" alt="img-fluid"></a>
+        <div class="col-md-4 justify-content-center d-flex py-5">
+            <a href="{{route('game')}}"><img src="{{asset('Images/icones/game-console.png')}}" class="mt-3" alt="img-fluid"></a>
         </div>
     </div>
         
@@ -57,7 +57,7 @@
 
 
 
-<div class="container py-4">
+<div class="container py-5">
     <div class="row">
         <div class="col-md-12 mx-auto">
             <h1 class="text-center py-3">All PRODUCTS</h1>
@@ -77,7 +77,11 @@
                            <p class="user-select-none">{{$item->pdp}}</p>
                            <p class="user-select-none">&#163;{{$item->price}}</p>
                        </div>
-                       <a href="#" class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></a>
+                       <form action="/addtocart" method="POST">
+                        @csrf
+                        <input type="hidden" value="{{$item->id}}" name='product_id'>
+                       <button class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></button>
+                      </form>
                      </div>
                 </div>   
             
@@ -131,7 +135,7 @@
             </div>
             <div class="col-md-6 pt-2 contect_section">
                <div class="card shadow p-3">
-                   <h2>Meet Our Brillent And Knowledgeable Support Team</h2>
+                   <h2 class="text-center">Meet Our Support Team</h2>
                    <hr>
                    <div class="pt-3">
                      <img src="{{asset('Images/phpA5CB.tmp.jpg')}}" alt="img" class="img-fluid">

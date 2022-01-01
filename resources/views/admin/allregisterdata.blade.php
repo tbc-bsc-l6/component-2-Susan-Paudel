@@ -1,5 +1,5 @@
-@extends('Layout')
-@section('content')
+@extends('adminLayout')
+@section('customerdata')
 <table class="table">
     <thead>
       <tr>

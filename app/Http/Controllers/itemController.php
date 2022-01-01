@@ -13,7 +13,7 @@ class itemController extends Controller
         return view('own/book',['data'=>$book]);
     }
     public function cdDisplay(){
-        $cd=product::where('producttype','=','cd')->latest()->paginate(1);
+        $cd=product::where('producttype','=','cd')->latest()->paginate(6);
         return view('own/cd',['data'=>$cd]);
     }
     public function GameDisplay(){

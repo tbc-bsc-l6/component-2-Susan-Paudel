@@ -1,8 +1,8 @@
 @extends('Layout')
 @section('game')
-<div class="container">
+<div class="container py-5">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 py-2">
             <h1>Games</h1>
             <hr style="height:5px;background:#232f3e;">
         </div>

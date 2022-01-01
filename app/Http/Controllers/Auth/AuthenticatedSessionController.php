@@ -31,9 +31,8 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-        return redirect('/navbody');
-
-        //return redirect()->intended(RouteServiceProvider::HOME);
+       
+        return redirect('/profile');
     }
 
     /**
@@ -51,7 +50,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/navbody');
+        return redirect()->intended(RouteServiceProvider::HOME);
 
         
     }

@@ -1,6 +1,6 @@
-@extends('Layout')
-@section('content')
-<div class="container py-3">
+@extends('adminLayout')
+@section('allproduct')
+<div class="container py-5">
   <div class="insert_tab d-flex justify-content-between bg-light p-3">
     <div class="insert">
       <h1>Insert data</h1>

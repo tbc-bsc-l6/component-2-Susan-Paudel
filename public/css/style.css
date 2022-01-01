@@ -120,3 +120,56 @@ label:focus,
 
 
 
+/*cart*/
+.shopCard{
+    background-color: #FAFAFA;
+    padding: 10px;
+    text-align: center;
+}
+.shopCard h1{
+    font-weight: bold;
+
+
+}
+.emtycaed{
+    display: flex;
+    justify-content: center ;
+    text-align: center;
+    flex-direction: column;
+
+    padding-bottom: 100px;
+}
+.emtycaed i{
+    font-size: 70px;
+    color: #000!important;
+
+    
+
+}
+.emtycaed p{
+    font-size: 15px;
+    color: #888888;
+
+}
+@media only screen and (max-width:800px){
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td{
+      display:block;
+    }
+    #no-more-tables thead tr{
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    #no-more-tables td{
+      position: relative;
+      padding-left: 50%;
+    }
+    #no-more-tables td:before{
+      content: attr(data-title);
+      position: absolute;
+      left: 6px;
+      font-weight: bold;
+    }
+  }

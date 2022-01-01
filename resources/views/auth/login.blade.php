@@ -2,7 +2,6 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
 
@@ -51,6 +50,10 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            <div class="mt-4">
+                <span class="ml-2 text-sm text-gray-600">If your are admin then!<a href="{{route('admin.login')}}">Signin</a></span>
+            </div>
+           
         </form>
     </x-auth-card>
 </x-guest-layout>

@@ -1,5 +1,5 @@
-@extends('Layout')
-@section('content')
+@extends('adminLayout')
+@section('productinsert')
 <div class="container py-3">
     <form method="POST" action="/insertform" class="shadow addproduct" enctype="multipart/form-data">
         @csrf

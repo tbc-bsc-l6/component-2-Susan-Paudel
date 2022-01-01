@@ -18,14 +18,9 @@ class admin
     public function handle(Request $request, Closure $next)
     {
        
-        if(Auth::check()){
-            if(Auth::user()->role=='1'){
-                return $next($request);
-            }else{
-               abort(404);
-            }
-        }else{
-            return redirect()->with('status','Please! Login Your Account');
+        if(!Auth::guard('admin')->check()){
+           return redirect()->route('admin.login');
         }
+        return $next($request);
     }
 }

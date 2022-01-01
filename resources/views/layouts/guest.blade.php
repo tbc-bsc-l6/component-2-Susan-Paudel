@@ -9,7 +9,8 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
@@ -17,8 +18,15 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
-        </div>
+        @include('own.nav')
+       
+            <div class="font-sans text-gray-900 antialiased">
+                <div class="py-5" style="background:#f1f4f7;">
+                {{ $slot }}
+               </div>
+           </div>
+       
+        @include('own.footer')
+        <script src={{asset('bootstrap/js/bootstrap.bundle.min.js')></script>
     </body>
 </html>
