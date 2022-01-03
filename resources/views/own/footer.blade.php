@@ -21,10 +21,10 @@
             <div class="col-md-3 py-4">
                 <div>
                     <h5 class="pb-3">SOCIAL MEDIA</h5>
-                <a href="https://www.facebook.com/TheBritishCollege"><span><i class="fab fa-facebook fa-2x "></i></span></a>
-                    <a href="https://www.instagram.com/thebritishcollege/"><span><i class="fab fa-instagram fa-2x px-2"></i></span></a>
-                        <a href="https://twitter.com/TBritishcollege"><span><i class="fab fa-twitter fa-2x px-2"></i></span></a>
-                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default"><span><i class="fab fa-google-plus fa-2x"></i></span></a>
+                <a href="https://www.facebook.com/TheBritishCollege" target="_blank"><span><i class="fab fa-facebook fa-2x "></i></span></a>
+                    <a href="https://www.instagram.com/thebritishcollege/" target="_blank"><span><i class="fab fa-instagram fa-2x px-2"></i></span></a>
+                        <a href="https://twitter.com/TBritishcollege" target="_blank"><span><i class="fab fa-twitter fa-2x px-2"></i></span></a>
+                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default" target="_blank"><span><i class="fab fa-google-plus fa-2x"></i></span></a>
                 </div>
                 
 
@@ -41,10 +41,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-</div>
-       
 
     </div>
 </div>

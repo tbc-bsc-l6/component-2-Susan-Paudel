@@ -4,6 +4,7 @@
   <div class="row">
     @foreach ($data as $item)
     <div class="col-md-3 py-2 col-sm-6 col-xs-12">
+      <a href="">
            <div class="card shadow">
                <img src="{{asset('/images/'.$item->Image)}}" style="height:250px;" class="card-img-top p-1" alt="...">
                <div class="card-body">
@@ -21,7 +22,7 @@
                 
                </div>
           </div>   
-      
+        </a>
     </div>
    @endforeach
   </div>

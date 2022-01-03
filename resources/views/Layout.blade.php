@@ -12,9 +12,9 @@ if(auth()->user()){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
    
     <title>Document</title>
@@ -38,10 +38,10 @@ if(auth()->user()){
           </div>
           <div class="col-md-6 nav_social_link d-none d-md-block">
             <div class="d-flex justify-content-end">
-              <a href="https://www.facebook.com/TheBritishCollege"><span><i class="fab fa-facebook px-1"></i></span></a>
-              <a href="https://www.instagram.com/thebritishcollege/"><span><i class="fab fa-instagram px-1"></i></span></a>
-                  <a href="https://twitter.com/TBritishcollege"><span><i class="fab fa-twitter px-1"></i></span></a>
-                      <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default"><span><i class="fab fa-google-plus px-1"></i></span></a>
+              <a href="https://www.facebook.com/TheBritishCollege" target="_blank"><span><i class="fab fa-facebook px-1"></i></span></a>
+              <a href="https://www.instagram.com/thebritishcollege/" target="_blank"><span><i class="fab fa-instagram px-1"></i></span></a>
+                  <a href="https://twitter.com/TBritishcollege" target="_blank"><span><i class="fab fa-twitter px-1"></i></span></a>
+                      <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default" target="_blank"><span><i class="fab fa-google-plus px-1"></i></span></a>
             </div>
            
           </div>
@@ -57,9 +57,9 @@ if(auth()->user()){
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-none d-md-block px-5 w-100">
-                  <form action="" method="GET" class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search">
-                    <button class="btn btn-outline-light" type="button" aria-expanded="false">Search</button>
+                  <form action="/searchedProduct" method="GET" class="input-group">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search" value="{{request('search')}}">
+                    <button class="btn btn-outline-light" type="submit" aria-expanded="false">Search</button>
                   </form>
           
                 </div>
@@ -74,10 +74,20 @@ if(auth()->user()){
               <li class="nav-item">
                 <a class="nav-link a" href="{{route('game')}}">GAME</a>
               </li>
+              <style>
+                .line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* truncate to 4 lines */
+  -webkit-line-clamp: 4;
+  width:10px;
+}
+                </style>
               @auth
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user" style="color:green;" aria-hidden="true"></i><span>{{Auth::user()->name}}</span>
+                  <p class="line-clamp-4" ><i class="fa fa-user" style="color:green;" aria-hidden="true"></i> {{Auth::user()->name}}</p>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
@@ -110,9 +120,9 @@ if(auth()->user()){
 </header>
       <div class="container" id="nav">
         <div class="col-12 pt-3 pb-3 d-md-none">
-          <form action="" method="GET" class="input-group">
-            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search">
-            <button class="btn btn-secondary" type="button" aria-expanded="false">Search</button>
+          <form action="/searchedProduct" method="GET" class="input-group">
+            <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search" value="{{request('search')}}">
+            <button class="btn btn-secondary" type="submit" aria-expanded="false">Search</button>
           </form>
          
       
@@ -127,6 +137,9 @@ if(auth()->user()){
   @yield('content')
   @yield('pagination')
   @yield('login')
+  @yield('searched')
+  @yield('profile')
+  @yield('productdetails')
 
   <div class="container-fluid footer">
     <div class="container">
@@ -151,10 +164,10 @@ if(auth()->user()){
             <div class="col-md-3 py-4">
                 <div>
                     <h5 class="pb-3">SOCIAL MEDIA</h5>
-                <a href="https://www.facebook.com/TheBritishCollege"><span><i class="fab fa-facebook fa-2x "></i></span></a>
-                    <a href="https://www.instagram.com/thebritishcollege/"><span><i class="fab fa-instagram fa-2x px-2"></i></span></a>
-                        <a href="https://twitter.com/TBritishcollege"><span><i class="fab fa-twitter fa-2x px-2"></i></span></a>
-                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default"><span><i class="fab fa-google-plus fa-2x"></i></span></a>
+                <a href="https://www.facebook.com/TheBritishCollege" target="_blank"><span><i class="fab fa-facebook fa-2x "></i></span></a>
+                    <a href="https://www.instagram.com/thebritishcollege/" target="_blank"><span><i class="fab fa-instagram fa-2x px-2"></i></span></a>
+                        <a href="https://twitter.com/TBritishcollege" target="_blank"><span><i class="fab fa-twitter fa-2x px-2"></i></span></a>
+                            <a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x39eb19b19295555f:0xabfe5f4b310f97de?source=g.page.default" target="_blank"><span><i class="fab fa-google-plus fa-2x"></i></span></a>
                 </div>
                 
 
@@ -179,7 +192,7 @@ if(auth()->user()){
     </div>
 </div>
 
-  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>

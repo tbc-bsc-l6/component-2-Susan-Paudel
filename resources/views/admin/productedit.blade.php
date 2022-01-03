@@ -1,5 +1,5 @@
 @extends('adminLayout')
-@section('productedit')
+@section('producteditform')
 <div class="container py-3">
     <form method="POST" action="/edit/{{$editdata->id}}" class="shadow addproduct" enctype="multipart/form-data">
         @csrf

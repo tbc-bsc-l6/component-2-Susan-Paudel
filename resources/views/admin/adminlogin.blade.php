@@ -24,13 +24,31 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <div class="d-flex justify-content-between">
+                    <x-label for="password" :value="__('Password')" /> 
+               
+                <i class="fa fa-eye" aria-hidden="true" onclick="myFunction()"></i>
+                </div>
+               
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
                                 name="password"
                                 required autocomplete="current-password" />
             </div>
+           
+            
+
+            <script>
+                function myFunction() {
+                    var x = document.getElementById("password");
+                    if (x.type === "password") {
+                        x.type = "text";
+                    } else {
+                        x.type = "password";
+                    }
+                }
+            </script>
 
             <!-- Remember Me -->
 

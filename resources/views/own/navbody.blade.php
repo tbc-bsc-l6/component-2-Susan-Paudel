@@ -68,6 +68,7 @@
         <div class="row py-5">
           @foreach ($data as $item)
           <div class="col-md-3 py-2 col-sm-6 col-xs-12">
+            <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
                  <div class="card shadow">
                      <img src="{{asset('/images/'.$item->Image)}}" style="height:250px;" class="card-img-top p-1" alt="...">
                      <div class="card-body">
@@ -77,6 +78,7 @@
                            <p class="user-select-none">{{$item->pdp}}</p>
                            <p class="user-select-none">&#163;{{$item->price}}</p>
                        </div>
+                      
                        <form action="/addtocart" method="POST">
                         @csrf
                         <input type="hidden" value="{{$item->id}}" name='product_id'>
@@ -84,10 +86,11 @@
                       </form>
                      </div>
                 </div>   
-            
+              </a>
           </div>
          @endforeach
         </div>
+        {{ $data->links() }}
       
 </div>
     
@@ -146,5 +149,19 @@
             </div>
         </div>
        
+</div>
+
+<div class="newsletter" style="background:rgb(223, 226, 228);">
+  <div class="container py-5">
+    <div class="row justify-content-center text-center">
+        <h1>Stay in touch with the latest products</h1>
+        <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+        <p>Promise to keep the inbox clean. No bugs.</p>
+        <form action="" method="GET" class="d-flex justify-content-center py-3">
+          <input type="email" class="form-control" placeholder="Your email address" style="width:40%;" >
+          <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        </form>
+    </div>
+  </div>
 </div>
 @endsection

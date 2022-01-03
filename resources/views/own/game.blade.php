@@ -29,6 +29,6 @@
          <h1>No Related Product Found... </h1>
      @endif
     </div>
-  
+    {{ $data->links() }}
   </div>  
 @endsection

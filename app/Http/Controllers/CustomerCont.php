@@ -16,7 +16,7 @@ class CustomerCont extends Controller
      */
     public function index()
     {
-        return view('own/navbody',['data'=>product::latest()->get()]);
+        return view('own/navbody',['data'=>product::latest()->paginate(8)]);
     }
 
     /**
@@ -55,5 +55,17 @@ class CustomerCont extends Controller
         }else{
             return back()->with('error','data insert unsuccessfull');
         }
+    }
+
+    public function searchProduct(Request $request){
+        $search = $request->input('search');
+        $product =product::latest();
+        $product->where('firstname','like','%'.$search.'%')
+            ->orwhere('mainname','like','%'.$search.'%');
+        return view('own.searchedproduct',['data'=>$product->paginate()]);
+    }
+
+    public function details($id){
+        return view('own/productdetails',['detail'=>product::find($id)]);
     }
 }

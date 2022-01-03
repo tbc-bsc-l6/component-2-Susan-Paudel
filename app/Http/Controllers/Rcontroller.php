@@ -14,7 +14,8 @@ class Rcontroller extends Controller
      */
     public function index()
     {
-        return view('admin/allproduct',['data'=>product::all()]);
+        $product=product::latest()->paginate(10);
+        return view('admin/allproduct',['data'=>$product]);
     }
 
     /**
@@ -39,21 +40,21 @@ class Rcontroller extends Controller
         $Imagename=time().$request->image->extension();
         $request->image->move(public_path('images'),$Imagename);
        
-        $data=new product;
+        $insert=product::create([
        
-        $data->firstname=$request->Firstname;
-        $data->mainname=$request->Surname;
-        $data->producttype=$request->type;
-        $data->title=$request->Title;
-        $data->pdp=$request->PagesDurationPEGI;
-        $data->price=$request->Price;
-        $data->Image=$Imagename;
-        $insert=$data->save();
+        'firstname'=>$request->Firstname,
+        'mainname'=>$request->Surname,
+        'producttype'=>$request->type,
+        'title'=>$request->Title,
+        'pdp'=>$request->PagesDurationPEGI,
+        'price'=>$request->Price,
+        'Image'=>$Imagename]);
         if($insert){
-            return redirect('/allproduct');
+            return redirect('/allproduct')->with('success','Product insert successfull');
         }else{
             return back()->with('error','data insert unsuccessfull');
         }
+    
     }
 
     /**
@@ -64,7 +65,7 @@ class Rcontroller extends Controller
      */
     public function show($id)
     {
-       
+       return view('admin.productedit');
     }
 
     /**
@@ -85,7 +86,7 @@ class Rcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $request->validate(['Firstname'=>'required','type'=>'required','Surname'=>'required','Title'=>'required','PagesDurationPEGI'=>'required','Price'=>'required','image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
         $Imagename=time().$request->image->extension();

@@ -32,11 +32,4 @@
   
 </div> 
 {{ $data->links() }} 
-<style>
-  .w-5{
-    height:20px;
-    width:20px;
-  }
-
-  </style>
 @endsection

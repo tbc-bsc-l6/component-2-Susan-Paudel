@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Rcontroller;
 use App\Http\Controllers\admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\admin\Auth\AdminHomeCont;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\orderController;
 use GuzzleHttp\Psr7\Request;
@@ -39,6 +40,8 @@ Route::middleware(['admin'])->group(function(){
     Route::get('/edit/{id}',[Rcontroller::class,'edit']);
     Route::post('/edit/{id}',[Rcontroller::class,'update']);
     Route::get('/delete/{id}',[Rcontroller::class,'destroy']);
+    Route::get('/customerDetails',[AdminHomeCont::class,'allcustomer'])->name('allcustomer');
+    Route::get('custdelete/{id}',[AdminHomeCont::class,'destroy']);
 });
 
 /*admin access*/
@@ -75,7 +78,7 @@ route::get('/book',[itemController::class,'bookDisplay'])->name('book');
 route::get('/cd',[itemController::class,'cdDisplay'])->name('cd');
 route::get('/game',[itemController::class,'gameDisplay'])->name('game');
 
-route::view('/pag','own.pagination');
+
 
 
 /*admin*/
@@ -87,9 +90,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
     
 });
 Route::middleware('admin')->group(function(){
-    Route::get('admindashboard',[AdminHomeCont::class,'index'])->name('adminhomepage');
+   
 });
-
+Route::get('admindashboard',[AdminHomeCont::class,'index'])->name('adminhomepage');
 Route::post('adminlogout',[AuthenticatedSessionController::class,'destroy'])->name('adminlogout');
 
 /*end admin*/
@@ -100,3 +103,11 @@ Route::post('adminlogout',[AuthenticatedSessionController::class,'destroy'])->na
 
 route::view('/nav','own.nav');
 route::view('/footer','own.footer');
+
+
+/**QueryString(); */
+route::get('/hello',[AdminHomeCont::class,'fetchadmininfo'])->name('hello');
+
+Route::get('/searchedProduct',[CustomerCont::class,'searchProduct'])->name('searchProduct');
+
+route::get('/details/{id}',[CustomerCont::class,'details']);
