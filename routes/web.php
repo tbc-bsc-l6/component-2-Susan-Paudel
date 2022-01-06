@@ -14,7 +14,7 @@ use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-
+use App\Services\newsletter;
 
 /*
 |--------------------------------------------------------------------------
@@ -119,19 +119,6 @@ Route::get('/productlist',[orderController::class,'displayorder'])->name('produc
 Route::get('/downlaodpdf',[orderController::class,'downloadPDF']);
 
 
-Route::get('/ping',function(){
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-   $mailchimp->setConfig([
-	'apiKey' => env('MAILCHIMP_APIKEY'),
-	'server' => 'us20'
-]);
-
-$response = $mailchimp->lists->getListMember('170e4c85bf',[
-    'email_address'=>'Ashish222@gmail.com',
-    'status'=>'subscribed',
-]);
-ddd($response);
-});
+Route::post('/newsletter',[newsletterControlle::class,'sendnewsletter']);
 
 //Route::post('/ping',[newsletterControlle::class,'store']);

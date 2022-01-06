@@ -160,16 +160,26 @@
         <h1>Stay in touch with the latest products</h1>
         <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
         <p>Promise to keep the inbox clean. No bugs.</p>
-        @if (Session::has('status'))
+        @if (Session::has('success'))
         <div class="alert alert-info" role="alert">
-         {{Session::get('status')}}
+         {{Session::get('success')}}
         </div>
         @endif
-        <form action="/ping" method="get" class="d-flex justify-content-center py-3">
+        <form action="/newsletter" method="POST" class="d-flex justify-content-center py-3">
           @csrf
           <input type="email" class="form-control" name="email_address" placeholder="Your email address" style="width:40%;" >
           <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
+        
+       
         </form>
+        <div>
+          @error('email_address')
+          <span style="color:red">{{$message}}</span>
+      @enderror
+      @error('email')
+      <span style="color:red">{{$message}}</span>
+  @enderror
+        </div>
     </div>
   </div>
 </div>

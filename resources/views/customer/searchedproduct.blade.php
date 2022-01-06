@@ -4,10 +4,25 @@
 @if(count($data)>=1)
 <div class="container py-5">
     <div class="row">
-        <div class="col-md-12 mx-auto">
-            <h1 class="text-center py-3">Searched Product</h1>
-            <div class="bigline"></div>
+        <div class="col">
+            <h1 class="py-3">Searched Product</h1>
+           
         </div>
+        <div class="col mt-4">
+          <form action="" class="d-flex justify-content-end">
+              <div class="me-2"> 
+                <select class="form-select" aria-label="Default select example">
+                    <option value="" selected>Sort The Product</option>
+                    <option value="1">By Author</option>
+                    <option value="2">By Price</option>
+                </select>
+
+              </div>
+              <button type="submit" class="btn btn-secondary">Sort</button>
+          </form>
+            
+        </div>
+        <div class="bigline"></div>
     </div>
     
         <div class="row py-5">
