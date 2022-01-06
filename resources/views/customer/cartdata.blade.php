@@ -9,16 +9,15 @@
   </div>
 
   @endif
-  
-   <table class="table table-dark">
+  <div class="table-responsive">
+   <table class="table table-dark text-center">
     <thead>
       <tr>
         <th scope="col">Image</th>
-        <th scope="col">producttype</th>
-        <th scope="col">mainname</th>
-        <th scope="col">PagesDurationPEGI</th>
-        <th scope="col">firstname</th>
-        <th scope="col">price</th>
+        <th scope="col">Producttype</th>
+        <th scope="col">Title</th>
+        <th scope="col">Artists/Author/Console</th>
+        <th scope="col">Price</th>
        
         <th scope="col"></th>
       </tr>
@@ -26,21 +25,22 @@
     <tbody>
         @foreach ($product as $item)
         <tr>
-            <td><img src="{{asset('/images/'.$item->Image)}}" style="height: 50px;width:50px;"></td>
-            <td>{{$item->producttype}}</td>
-            <td>{{$item->mainname}}</td>
-            <td>{{$item->pdp}}</td>
-            <td>{{$item->firstname}}</td>
-            <td>&#163;{{$item->price}}</td>
-            <td><a href="/removecartdata/{{$item->cart_id}}"><button class="btn btn-danger">Remove</button></a></td>
+            <td><img src="{{asset('/images/'.$item->Image)}}" style="height: 100px;width:100px;"></td>
+            <td class="align-middle">{{$item->producttype}}</td>
+            <td class="align-middle">{{$item->title}}</td>
+            <td class="align-middle">{{$item->firstname}}</td>
+            <td class="align-middle">&#163;{{$item->price}}</td>
+            <td><a href="/removecartdata/{{$item->cart_id}}"><button class="btn btn-danger mt-4">Remove</button></a></td>
           </tr>
             
         @endforeach
      
     </tbody>
   </table> 
-  <a class="btn btn-secondary" href="/order">Check Order</a>
+  
 
+</div>
+<a class="btn btn-secondary" href="/order">Check Order</a>
 </div>
     
 @else

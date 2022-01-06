@@ -8,9 +8,13 @@
         </div>
     </div>
     <div class="row">
+        @if (Session::has('message'))
+        <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
+   @endif
     @if(count($data)>=1)
        @foreach ($data as $item)
         <div class="col-md-3 py-2 col-sm-6 col-xs-12">
+            <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
             <div class="card shadow">
                 <img src="{{asset('/images/'.$item->Image)}}" style="height:250px;" class="card-img-top p-1" alt="...">
                 <div class="card-body">
@@ -20,9 +24,14 @@
                       <p class="user-select-none">{{$item->pdp}}</p>
                       <p class="user-select-none">&#163;{{$item->price}}</p>
                   </div>
-                  <a href="#" class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></a>
+                  <form action="/addtocart" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{$item->id}}" name='product_id'>
+                   <button class="btn btn-warning w-100">Add To Cart<i class="fa fa-shopping-cart ms-1 mt-1" aria-hidden="true"></i></button>
+                  </form>
                 </div>
-           </div>   
+           </div> 
+            </a>  
          </div>
        @endforeach 
      @else

@@ -5,15 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+
 class cartController extends Controller
 {
     public function addtocart(Request $request){
       $user = auth()->user()->id;
-      $cart=new Cart;
-      $cart->User_id=$user;
-      $cart->Product_id=$request->product_id;
-      $cart->save();
-      return redirect('/navbody');
+      $product = Cart::where('Product_id', '=', $request->product_id)->first();
+      if ($product === null) {
+        Cart::create([
+            'User_id'=>$user,
+            'Product_id'=>$request->product_id
+          ]);
+          return back();
+      } else {
+        Session::flash('message', "Product Already Added To The Cart!");
+        return back();
+      }
+     
+      
     }
     static function countcartitem(){
         $user_id=auth()->user()->id;

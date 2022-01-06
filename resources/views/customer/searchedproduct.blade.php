@@ -11,8 +11,12 @@
     </div>
     
         <div class="row py-5">
+            @if (Session::has('message'))
+            <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
+        @endif
           @foreach ($data as $item)
           <div class="col-md-3 py-2 col-sm-6 col-xs-12">
+            <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
                  <div class="card shadow">
                      <img src="{{asset('/images/'.$item->Image)}}" style="height:250px;" class="card-img-top p-1" alt="...">
                      <div class="card-body">
@@ -29,7 +33,7 @@
                       </form>
                      </div>
                 </div>   
-            
+            </a>
           </div>
          @endforeach
         </div>

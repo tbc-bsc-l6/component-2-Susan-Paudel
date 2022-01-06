@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
 use App\Models\order;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class orderController extends Controller
 {
@@ -35,7 +36,7 @@ class orderController extends Controller
             $order->save();
             Cart::where('user_id',$user)->delete();
         }
-        return redirect('/navbody');
+        return redirect('/productlists');
     } 
     function displayorder(){
         $user=auth()->user()->id;
@@ -45,5 +46,14 @@ class orderController extends Controller
         ->get();
 
         return view('customer/orderdisplay',['order'=>$orders]);
+    }
+    public function downloadPDF(){
+        $user=auth()->user()->id;
+        $orders=DB::table('orders')
+        ->join('products','orders.product_id','=','products.id')
+        ->where('orders.user_id',$user)
+        ->get();
+        $pdf = PDF::setOptions(['defaultFont' => 'dejavu serif'])->loadView('customer/orderdisplay',['order'=>$orders]);
+        return $pdf->stream('orders.pdf');
     }
 }

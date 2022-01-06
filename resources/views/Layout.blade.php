@@ -74,24 +74,14 @@ if(auth()->user()){
               <li class="nav-item">
                 <a class="nav-link a" href="{{route('game')}}">GAME</a>
               </li>
-              <style>
-                .line-clamp-4 {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  /* truncate to 4 lines */
-  -webkit-line-clamp: 4;
-  width:10px;
-}
-                </style>
               @auth
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <p class="line-clamp-4" ><i class="fa fa-user" style="color:green;" aria-hidden="true"></i> {{Auth::user()->name}}</p>
-                </a>
+                  <span  class="d-inline-block text-truncate" style="max-width: 80px;"> <i class="fa fa-user" style="color:green;" aria-hidden="true"></i>{{Auth::user()->name}}</span>
+                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="btn dropdown-item" href="/profile">Dashboard</a>
+                    <a class="btn dropdown-item" href="{{route('userprofile')}}">Dashboard</a>
                   </li>
                   <li> 
                     <form method="POST" action="{{ route('logout') }}">
@@ -140,6 +130,7 @@ if(auth()->user()){
   @yield('searched')
   @yield('profile')
   @yield('productdetails')
+  @yield('productlist')
 
   <div class="container-fluid footer">
     <div class="container">

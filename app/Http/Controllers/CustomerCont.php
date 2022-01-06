@@ -16,7 +16,7 @@ class CustomerCont extends Controller
      */
     public function index()
     {
-        return view('own/navbody',['data'=>product::latest()->paginate(8)]);
+        return view('customer/navbody',['data'=>product::latest()->paginate(8)]);
     }
 
     /**
@@ -40,15 +40,15 @@ class CustomerCont extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate(['email'=>'required | email','phonenumber'=>'required','name'=>'required','location'=>'required']);
+        $request->validate(['phonenumber'=>'required | digits:10','name'=>'required | min:0 | max:50','location'=>'required | min:0 | max:50']);
      
         $user_id=auth()->user()->id;
         $data=user::find($user_id);
-        
-        $data->email=$request->email;
+
         $data->name=$request->name;
         $data->phonenumber=$request->phonenumber;
         $data->location=$request->location;
+        $data->password=bcrypt($request->password);
         $insert=$data->save();
         if($insert){
             return back()->with('success','Data update Successfull');
@@ -62,10 +62,10 @@ class CustomerCont extends Controller
         $product =product::latest();
         $product->where('firstname','like','%'.$search.'%')
             ->orwhere('mainname','like','%'.$search.'%');
-        return view('own.searchedproduct',['data'=>$product->paginate()]);
+        return view('customer.searchedproduct',['data'=>$product->paginate(8)]);
     }
 
     public function details($id){
-        return view('own/productdetails',['detail'=>product::find($id)]);
+        return view('customer/productdetails',['detail'=>product::find($id)]);
     }
 }

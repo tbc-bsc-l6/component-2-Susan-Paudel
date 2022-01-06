@@ -18,7 +18,7 @@
         <script src="{{ asset('/js/app.js') }}" defer></script>
     </head>
     <body>
-        @include('own.nav')
+        @include('customer.nav')
        
             <div class="font-sans text-gray-900 antialiased">
                 <div class="pb-4" style="background:#f1f4f7;">
@@ -26,7 +26,7 @@
                </div>
            </div>
        
-        @include('own.footer')
+        @include('customer.footer')
         <script src={{asset('/bootstrap/js/bootstrap.bundle.min.js')}}></script>
     </body>
 </html>

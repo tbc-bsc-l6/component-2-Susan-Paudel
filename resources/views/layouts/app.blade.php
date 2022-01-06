@@ -19,19 +19,12 @@
     </head>
     <body class="font-sans antialiased">
         <div class="">
-            @include('own.nav')
+            @include('customer.nav')
 
             <!-- Page Heading -->
             <div class="py-4 container">
-                <header class="bg-white shadow ">
+                <header class="bg-white">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                      <div class="py-3 ps-1"> 
-                        <form method="POST" action="{{ route('logout') }}">
-                          @csrf
-                          <button class="btn btn-secondary" href='/logout'> {{ __('Log Out') }}</button>
-                         
-                        </form>
-                         </div>
                        <div class="row">
                         <div class="col-md-12">
                             <form method="POST" action="/profileupdate" class="shadow p-4">
@@ -54,25 +47,32 @@
                                   <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@gmail.com" value="{{$fetchcustomer->email}}">
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="example@gmail.com" value="{{$fetchcustomer->email}}" disabled>
                                         <span class="error">@error('email'){{$message}}  @enderror</span>
                                       </div>
                                       <div class="mb-3 col-md-6">
                                         <label for="accountName" class="form-label">Account Name</label>
-                                        <input type="text" class="form-control" placeholder="Enter Your Name" name="name" value="{{$fetchcustomer->name}}">
+                                        <input type="text" class="form-control" placeholder="Enter Your Name" name="name" value="{{$fetchcustomer->name}}" required>
                                         <span class="error">@error('name'){{$message}}  @enderror</span>
                                       </div>
                                         <div class="mb-3 col-md-6">
                                           <label for="Location" class="form-label">Location</label>
-                                          <input type="text" class="form-control" placeholder="Enter Your Full Address" name="location" value="{{$fetchcustomer->location}}">
+                                          <input type="text" class="form-control" placeholder="Enter Your Full Address" name="location" value="{{$fetchcustomer->location}}" required>
                                           <span class="error">@error('location'){{$message}}  @enderror</span>
                                         </div>
                                         <div class="mb-3 col-md-6">
                                           <label for="phonenumber" class="form-label">Phone Number</label>
-                                          <input type="text" class="form-control" placeholder="Enter Your Phone number" name="phonenumber" value="{{$fetchcustomer->phonenumber}}">
+                                          <input type="text" class="form-control" placeholder="Enter Your Phone number" name="phonenumber" value="{{$fetchcustomer->phonenumber}}" required>
                                           <span class="error">@error('phonenumber'){{$message}}  @enderror</span>
                                         </div>
-                                      
+                                        <div class="mb-3 col-md-6">
+                                          <div class="d-flex justify-content-between">
+                                          <label for="phonenumber" class="form-label">New Password</label>
+                                          <i class="fa fa-eye" aria-hidden="true" onclick="myFunction()"></i>
+                                          </div>
+                                          <input type="password" class="form-control" id="password" placeholder="Enter Your New Password" name="password">
+                                          <span class="error">@error('password'){{$message}}  @enderror</span>
+                                        </div>
                                   </div>
                                   <button type="submit" class="btn mb-3" style="background: #232f3e;
                                   color:white;">Save</button>
@@ -89,8 +89,18 @@
 
             <!-- Page Content -->
           
-            @include('own.footer')
+            @include('customer.footer')
         </div>
         <script src={{asset('/bootstrap/js/bootstrap.bundle.min.js')}}></script>
+        <script>
+          function myFunction() {
+              var x = document.getElementById("password");
+              if (x.type === "password") {
+                  x.type = "text";
+              } else {
+                  x.type = "password";
+              }
+          }
+      </script>
     </body>
 </html>

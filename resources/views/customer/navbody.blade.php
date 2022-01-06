@@ -3,24 +3,24 @@
 <div id="carouselExampleFade" class="carousel slide carousel-fade pb-3" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{asset('images/slider1.jpg')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('images/slider1.jpg')}}" class="d-block w-100 img-fluid" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h2>GET YOUR FAVOURITE BOOKS!</h2>
+          <p>All Sorts Of Books Available From Trending Authors</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{asset('images/slider2.jpg')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('images/slider2.jpg')}}" class="d-block w-100 img-fluid" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h2>GET YOUR FAVOURITE GAMES!</h2>
+          <p>Shop The Games That Will Blow Your Mind</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{asset('images/slider3.jpg')}}" class="d-block w-100" alt="...">
+        <img src="{{asset('images/slider3.jpg')}}" class="d-block w-100 img-fluid" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h2>GET YOUR FAVOURITE CDS!</h2>
+          <p>Listen To Heavenly Music From Your Nearest Store </p>
         </div>
       </div>
     </div>
@@ -66,6 +66,9 @@
     </div>
     
         <div class="row py-5">
+          @if (Session::has('message'))
+               <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
+          @endif
           @foreach ($data as $item)
           <div class="col-md-3 py-2 col-sm-6 col-xs-12">
             <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
@@ -151,14 +154,20 @@
        
 </div>
 
-<div class="newsletter" style="background:rgb(223, 226, 228);">
+<div class="newsletter py-5" style="background:rgb(223, 226, 228);">
   <div class="container py-5">
     <div class="row justify-content-center text-center">
         <h1>Stay in touch with the latest products</h1>
         <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
         <p>Promise to keep the inbox clean. No bugs.</p>
-        <form action="" method="GET" class="d-flex justify-content-center py-3">
-          <input type="email" class="form-control" placeholder="Your email address" style="width:40%;" >
+        @if (Session::has('status'))
+        <div class="alert alert-info" role="alert">
+         {{Session::get('status')}}
+        </div>
+        @endif
+        <form action="/ping" method="get" class="d-flex justify-content-center py-3">
+          @csrf
+          <input type="email" class="form-control" name="email_address" placeholder="Your email address" style="width:40%;" >
           <button type="submit" class="btn btn-primary">SUBSCRIBE</button>
         </form>
     </div>

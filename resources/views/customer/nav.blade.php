@@ -77,11 +77,11 @@ if(auth()->user()){
               @auth
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa fa-user" style="color:green;" aria-hidden="true"></i><span>{{Auth::user()->name}}</span>
+                 <span  class="d-inline-block text-truncate" style="max-width: 80px;"> <i class="fa fa-user" style="color:green;" aria-hidden="true"></i>{{Auth::user()->name}}</span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a class="btn dropdown-item" href="/profile">Dashboard</a>
+                    <a class="btn dropdown-item" href="{{route('userprofile')}}">Dashboard</a>
                   </li>
                   <li> 
                     <form method="POST" action="{{ route('logout') }}">

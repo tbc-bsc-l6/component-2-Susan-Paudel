@@ -10,14 +10,14 @@ class itemController extends Controller
     
     public function bookDisplay(){
         $book=product::where('producttype','=','book')->latest()->paginate(8);
-        return view('own/book',['data'=>$book]);
+        return view('customer/book',['data'=>$book]);
     }
     public function cdDisplay(){
         $cd=product::where('producttype','=','cd')->latest()->paginate(8);
-        return view('own/cd',['data'=>$cd]);
+        return view('customer/cd',['data'=>$cd]);
     }
     public function GameDisplay(){
         $game=product::where('producttype','game')->latest()->paginate(8);
-        return view('own/game',['data'=>$game]);
+        return view('customer/game',['data'=>$game]);
     }
 }

@@ -8,11 +8,13 @@ use App\Http\Controllers\admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\admin\Auth\AdminHomeCont;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\newsletterControlle;
 use App\Http\Controllers\orderController;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +52,7 @@ Route::middleware(['admin'])->group(function(){
 
 /*user access*/
 Route::middleware(['auth','verified'])->group(function(){
-    Route::get('/profile',[CustomerCont::class,'edit']);
+    Route::get('/userprofile',[CustomerCont::class,'edit'])->name('userprofile');
     Route::post('/profileupdate',[CustomerCont::class,'update']);
     /*add to cart*/ 
     Route::post('/addtocart',[cartController::class,'addtocart']);
@@ -106,8 +108,30 @@ route::view('/footer','own.footer');
 
 
 /**QueryString(); */
-route::get('/hello',[AdminHomeCont::class,'fetchadmininfo'])->name('hello');
+route::get('/adminprofile',[AdminHomeCont::class,'fetchadmininfo'])->name('adminprofile');
 
 Route::get('/searchedProduct',[CustomerCont::class,'searchProduct'])->name('searchProduct');
 
 route::get('/details/{id}',[CustomerCont::class,'details']);
+route::view('/productlists','customer/productlist');
+Route::get('/productlist',[orderController::class,'displayorder'])->name('productlist');
+
+Route::get('/downlaodpdf',[orderController::class,'downloadPDF']);
+
+
+Route::get('/ping',function(){
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+   $mailchimp->setConfig([
+	'apiKey' => env('MAILCHIMP_APIKEY'),
+	'server' => 'us20'
+]);
+
+$response = $mailchimp->lists->getListMember('170e4c85bf',[
+    'email_address'=>'Ashish222@gmail.com',
+    'status'=>'subscribed',
+]);
+ddd($response);
+});
+
+//Route::post('/ping',[newsletterControlle::class,'store']);

@@ -152,6 +152,8 @@ label:focus,
     color: #888888;
 
 }
+
+/*table*/
 @media only screen and (max-width:800px){
     #no-more-tables tbody,
     #no-more-tables tr,
@@ -175,7 +177,7 @@ label:focus,
     }
   }
 
-
+/*table close*/
 
 
 
@@ -194,4 +196,17 @@ label:focus,
   }
   .flex-1{
      display: none;
+  }
+
+  .carousel-item h2{
+    
+    text-shadow:2px 2px 8px #F5F5F5;
+    font-weight: bolder;
+  }
+  .carousel-item p{
+      font-size: 30px;
+  }
+
+  .carousel-item img{
+     height:498px;
   }
