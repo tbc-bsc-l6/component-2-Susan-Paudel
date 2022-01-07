@@ -65,7 +65,7 @@
       <p>We invite you to get acquainted with an assortment of our shop.Surely you can find something for <br>
           yourself!</p>
       <div class="btns">
-          <button class="btn btn-secondary">Return To Shop</button>
+         <a href="/navbody"> <button class="btn btn-secondary">Return To Shop</button></a>
       </div>
   </div>
 

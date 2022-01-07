@@ -15,7 +15,8 @@
      {{Session::get('success')}}
   </div>
   @endif
-<table class="table table-dark">
+<div class="table-responsive">
+  <table class="table table-dark">
     <thead>
       <tr>
         <th scope="col">Image</th>
@@ -25,28 +26,36 @@
         <th scope="col">firstname</th>
         <th scope="col">title</th>
         <th scope="col">price</th>
-        <th scope="col">edit</th>
-        <th scope="col">delete</th>
+        <th scope="col" colspan="2">Action</th>
+       
       </tr>
     </thead>
     <tbody>
         @foreach ($data as $item)
         <tr>
-            <td><img src="{{asset('/images/'.$item->Image)}}" style="height: 50px;width:50px;"></td>
-            <td>{{$item->producttype}}</td>
-            <td>{{$item->mainname}}</td>
-            <td>{{$item->pdp}}</td>
-            <td>{{$item->firstname}}</td>
-            <td>{{$item->title}}</td>
-            <td>{{$item->price}}</td>
-            <td><a href="edit/{{$item->id}}"><button class="btn btn-info">Edit</button></a></td>
-            <td><a href="delete/{{$item->id}}"><button class="btn btn-danger">Delete</button></a></td>
+            <td class="align-middle"><img src="{{asset('/images/'.$item->Image)}}" style="height: 50px;width:50px;"></td>
+            <td class="align-middle">{{$item->producttype}}</td>
+            <td class="align-middle">{{$item->mainname}}</td>
+            <td class="align-middle">{{$item->pdp}}</td>
+            <td class="align-middle">{{$item->firstname}}</td>
+            <td class="align-middle">{{$item->title}}</td>
+            <td class="align-middle">{{$item->price}}</td>
+            <td class="align-middle"><a href="edit/{{$item->id}}"><button class="btn btn-info">Edit</button></a></td>
+            <td class="align-middle">
+              <form action="delete/{{$item->id}}" method="POST">
+               @csrf
+               @method('DELETE')
+               <button class="btn btn-danger" type="submit">Delete</button></a>
+              </form>
+            </td>
           </tr>
             
         @endforeach
      
     </tbody>
-  </table>  
+  </table>
+</div>
+  
   {{ $data->links() }}
 </div>
   @endsection 

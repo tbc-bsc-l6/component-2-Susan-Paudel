@@ -57,11 +57,11 @@ if(auth()->user()){
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-none d-md-block px-5 w-100">
-                  <form action="/searchedProduct" method="GET" class="input-group">
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search" value="{{request('search')}}">
+                  <form action="/searchedProduct" method="GET" class="input-group was-validated">
+                    <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search" value="{{request('search')}}" required >
                     <button class="btn btn-outline-light" type="submit" aria-expanded="false">Search</button>
+                  
                   </form>
-          
                 </div>
             
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">

@@ -8,19 +8,25 @@
         <th scope="col">email</th>
         <th scope="col">password</th>
         <th scope="col">location</th>
-        <th scope="col">phone number</th>
-        <th scope="col">delete</th>
+        <th scope="col">phonenumber</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
         @foreach ($details as $item)
         <tr>
-            <td>{{$item->name}}</td>
-            <td>{{$item->email}}</td>
-            <td>{{$item->password}}</td>
-            <td>{{$item->location}}</td>
-            <td>{{$item->phonenumber}}</td>
-            <td><a href="/custdelete/{{$item->id}}"><button type="submit" class="btn btn-warning">Delete</button></a></td>
+            <td class="align-middle">{{$item->name}}</td>
+            <td class="align-middle">{{$item->email}}</td>
+            <td class="align-middle">{{$item->password}}</td>
+            <td class="align-middle">{{$item->location}}</td>
+            <td class="align-middle">{{$item->phonenumber}}</td>
+            <td class="align-middle">
+              <form action="/custdelete/{{$item->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-warning">Delete</button>
+              </form>
+             </td>
           </tr>
             
         @endforeach

@@ -11,11 +11,11 @@ class cartController extends Controller
 {
     public function addtocart(Request $request){
       $user = auth()->user()->id;
-      $product = Cart::where('Product_id', '=', $request->product_id)->first();
+      $product = Cart::where('Product_id', '=', $request->product_id)->where('User_id','=',$user)->first();
       if ($product === null) {
         Cart::create([
             'User_id'=>$user,
-            'Product_id'=>$request->product_id
+            'Product_id'=>$request->product_id,
           ]);
           return back();
       } else {
@@ -40,7 +40,7 @@ class cartController extends Controller
     }
 
     function removecartitems($id){
-        Cart::destroy($id);
+        Cart::find($id)->delete();
         return back()->with('success','Items have been removed');
 
     }

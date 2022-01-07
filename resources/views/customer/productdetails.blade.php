@@ -2,7 +2,11 @@
 @section('productdetails')
 <div class="container py-5">
     <div class="card mb-3 shadow">
+
         <div class="row">
+          @if (Session::has('message'))
+          <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
+     @endif
           <div class="col-md-5">
             <img src="{{asset('/images/'.$detail->Image)}}" class="img-fluid p-2" alt="product_image" style="width:100%;height:400px;">
           </div>

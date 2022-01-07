@@ -9,12 +9,12 @@
            
         </div>
         <div class="col mt-4">
-          <form action="" class="d-flex justify-content-end">
+          <form action="/searchedProduct" method="get" class="d-flex justify-content-end">
               <div class="me-2"> 
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="sortBy" aria-label="Default select example">
                     <option value="" selected>Sort The Product</option>
-                    <option value="1">By Author</option>
-                    <option value="2">By Price</option>
+                    <option value="author">By Author</option>
+                    <option value="price">By Price</option>
                 </select>
 
               </div>

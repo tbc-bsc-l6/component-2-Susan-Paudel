@@ -210,3 +210,17 @@ label:focus,
   .carousel-item img{
      height:498px;
   }
+
+
+  .list-group-item .border-0{
+    list-style-type: disc !important;
+    padding-left: 0em;
+}
+.list-group-item::before {
+    content: "●";
+   
+  }
+  .form-error {
+
+    border: 2px solid #e74c3c;
+  }

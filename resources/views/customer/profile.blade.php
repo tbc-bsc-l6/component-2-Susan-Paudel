@@ -6,13 +6,6 @@
             <div class="profile_img py-4">
                 <img src="https://media.istockphoto.com/photos/young-beautiful-woman-picture-id1294339577?b=1&k=20&m=1294339577&s=170667a&w=0&h=_5-SM0Dmhb1fhRdz64lOUJMy8oic51GB_2_IPlhCCnU=" alt="">
             </div>
-            <div class="personal_links py-4">
-             @if ((Auth::user()->role)==0)
-             <h3 class="text-center">Customer</h3>
-             @else
-            <h3 class="text-center">Admin</h3>
-             @endif
-            </div>
              <div class="d-flex justify-content-center">
                 <button class="btn btn-outline-dark w-50">upload Image</button>
              </div>

@@ -14,9 +14,6 @@
      margin: 0px auto;
      align-content:center;
    }
-    table{
-      margin:0px auto;
-    }
     td{
       justify-content: center;
       padding:20px;
@@ -38,6 +35,29 @@
       border-radius:10px;
       cursor: pointer;
     }
+  #customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin:0px auto;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
   </style>
 </head>
 <body>
@@ -47,7 +67,7 @@
         <a href="/downlaodpdf"><button type="submit">Download PDF</button></a>
       </div>
    
-  <table border="1" class="table table-dark">
+  <table border="1" class="table table-dark" id="customers">
       <thead>
         <tr>
           <th scope="col">producttype</th>
@@ -77,4 +97,3 @@
 
 </body>
 </html>
-   

@@ -29,6 +29,7 @@
                         <div class="col-md-12">
                             <form method="POST" action="/profileupdate" class="shadow p-4">
                                 @csrf
+                                @method('PATCH')
                                   <h1>Personal Info</h1>
                                   @if (Session::has('success'))
                                   <div class="mb-3">

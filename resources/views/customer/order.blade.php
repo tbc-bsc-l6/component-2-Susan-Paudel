@@ -42,10 +42,7 @@
               <div class="mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label">Payment Method</label>
                  <select class="form-select" name="paymenttype" aria-label="Default select example">
-                    <option selected value="choose">Select Payment Method</option>
-                    <option value="CashOnDelivery">Cash On Delivery</option>
-                    <option value="OnlinePayment">Online Payment</option>
-                    <option value="Paypal">Paypal</option>
+                    <option selected value="CashOnDelivery">Cash On Delivery</option>
                   </select>
                   @error('paymenttype')
                   <span style="color:red;">{{$message}}</span>

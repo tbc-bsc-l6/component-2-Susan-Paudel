@@ -109,33 +109,51 @@
         </div>
         <div class="row py-5">
             <div class="col-md-6 pt-2">
-                <div class="form row">
-                    <form action="" method="POST">
+              @if(Session::has('emailsent'))
+              <div class="alert alert-success" role="alert">
+                {{Session::get('emailsent')}}
+              </div>
+              @endif
+                  <div class="form row">
+                    <form action="/emailsend" method="POST">
+                      @csrf
                         <div class="col-12 mb-2">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Full Name">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" name="fullname">
                                 <label for="floatingInput">Full Name</label>
+                                @error('fullname')
+                                <span style="color:red;">{{$message}}</span>
+                                @enderror
                               </div>
                         </div>
                         <div class="col-12 mb-2">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email address</label>
+                                @error('email')
+                                <span style="color:red;">{{$message}}</span>
+                                @enderror
                               </div>
                         </div>
                         <div class="col-12 mb-2">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Title">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Title" name="title">
                                 <label for="floatingInput">Title</label>
+                                @error('title')
+                                <span style="color:red;">{{$message}}</span>
+                                @enderror
                               </div>
                         </div>
                        <div class="col-12 mb-2">
                          <div class="form-floating">
-                             <textarea class="form-control" placeholder="Your Messages" id="floatingTextarea"></textarea>
+                             <textarea class="form-control" placeholder="Your Messages" id="floatingTextarea" name="message"></textarea>
                              <label for="floatingTextarea">Your Messages</label>
+                             @error('message')
+                                <span style="color:red;">{{$message}}</span>
+                                @enderror
                            </div>
                        </div>
-                       <button class="btn btn-secondary">Send</button>
+                       <button class="btn btn-secondary" type="submit">Send</button>
                     </form>
                  </div>
             </div>
@@ -144,7 +162,7 @@
                    <h2 class="text-center">Meet Our Support Team</h2>
                    <hr>
                    <div class="pt-3">
-                     <img src="{{asset('Images/phpA5CB.tmp.jpg')}}" alt="img" class="img-fluid">
+                     <img src="{{asset('Images/icones/contact.jpg')}}" alt="img" class="img-fluid">
                      <p class="text-blod py-2">Susan Paudel</p>
                    </div>
                   
@@ -176,9 +194,9 @@
           @error('email_address')
           <span style="color:red">{{$message}}</span>
       @enderror
-      @error('email')
+      @error('email_address')
       <span style="color:red">{{$message}}</span>
-  @enderror
+      @enderror
         </div>
     </div>
   </div>
