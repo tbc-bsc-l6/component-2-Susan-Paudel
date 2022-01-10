@@ -33,6 +33,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        //server side validation
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -40,6 +41,7 @@ class RegisteredUserController extends Controller
             'phonenumber'=>['required','digits:10'],
             'location'=>['required','max:255'],
         ]);
+        //create the data into Users table using user model
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -47,12 +49,12 @@ class RegisteredUserController extends Controller
             'phonenumber'=> $request->phonenumber,
             'location'=> $request->location,
         ]);
-
+        //if error occure than return back to register page
         event(new Registered($user));
-
+        //set auth session
         Auth::login($user);
          
-        
+       //redirect to home page
        return redirect(RouteServiceProvider::HOME);
     }
 }

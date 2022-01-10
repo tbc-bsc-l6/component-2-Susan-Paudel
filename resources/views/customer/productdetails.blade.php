@@ -8,7 +8,9 @@
           <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
      @endif
           <div class="col-md-5">
-            <img src="{{asset('/images/'.$detail->Image)}}" class="img-fluid p-2" alt="product_image" style="width:100%;height:400px;">
+            <?php $image = str_replace('public/images\\', '', $detail->Image) ?>
+            <img class="img-fluid d-block w-100 p-2" src={{ "/images/" . $image }}
+                style="width:100%;height:400px;" alt="product image">
           </div>
           <div class="col-md-7 border-start">
             <div class="card-body">

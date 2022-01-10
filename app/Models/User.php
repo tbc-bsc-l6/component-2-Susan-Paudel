@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * The attributes that are mass assignable.
-     *
+     * The attributes that should be mutated to fillable.
      * @var array<int, string>
      */
     protected $fillable = [
@@ -30,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * The attributes that should be hidden for serialization.
-     *
+     * he attributes that should be mutated to hidden.
      * @var array<int, string>
      */
     protected $hidden = [
@@ -40,13 +38,20 @@ class User extends Authenticatable implements MustVerifyEmail
 
     /**
      * The attributes that should be cast.
-     *
+     * array set the value to the 
+     * The attributes that should be mutated to casts.
      * @var array<string, string>
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
+      /**
+     * The belongs to Relationship
+     * user has many relation with cart
+     * @var array
+     * create function cart
+     */
     public function cart()
     {
         return $this->hasMany(Cart::class);

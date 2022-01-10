@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 
+//NewPasswordController Inherite Controller
 class NewPasswordController extends Controller
 {
     /**

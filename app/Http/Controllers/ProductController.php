@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+//include the required model 
 use App\Models\product;
 use Illuminate\Http\Request;
 
-class Rcontroller extends Controller
+//Rcontroller inherite the property of Controller
+class ProductController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -14,8 +16,7 @@ class Rcontroller extends Controller
      */
     public function index()
     {
-        $product=product::latest()->paginate(10);
-        return view('admin/allproduct',['data'=>$product]);
+        return view('admin/allproduct',['data'=>Product::latest()->paginate(10)]);
     }
 
     /**
@@ -36,12 +37,22 @@ class Rcontroller extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['Firstname'=>'required','type'=>'required | not_in:choose','Surname'=>'required','Title'=>'required','PagesDurationPEGI'=>'required','Price'=>'required','image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+        //validate function does server side validation of required input fields
+        $request->validate(['Firstname'=>'required',
+        'type'=>'required | not_in:choose',
+        'Surname'=>'required',
+        'Title'=>'required',
+        'PagesDurationPEGI'=>'required',
+        'Price'=>'required',
+        'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+
+        //add time to request image to make it unique
         $Imagename=time().$request->image->extension();
+        //move function move the image into image folder inside public folder
         $request->image->move(public_path('images'),$Imagename);
-       
-        $insert=product::create([
-       
+        //create function create data into db
+        $insert=Product::create([
+        //storing related request data into db column
         'firstname'=>$request->Firstname,
         'mainname'=>$request->Surname,
         'producttype'=>$request->type,
@@ -49,9 +60,14 @@ class Rcontroller extends Controller
         'pdp'=>$request->PagesDurationPEGI,
         'price'=>$request->Price,
         'Image'=>$Imagename]);
+        //if insert exist
         if($insert){
+            /**
+             * @return view allproduct with success message
+             */
             return redirect('/allproduct')->with('success','Product insert successfull');
         }else{
+            //back with error message
             return back()->with('error','data insert unsuccessfull');
         }
     
@@ -76,6 +92,7 @@ class Rcontroller extends Controller
      */
     public function edit($id)
     {
+        //find the id and store it into editdata using key value pair
         return view('admin/productedit',['editdata'=>product::find($id)]);
     }
 
@@ -88,11 +105,23 @@ class Rcontroller extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate(['Firstname'=>'required','type'=>'required','Surname'=>'required','Title'=>'required','PagesDurationPEGI'=>'required','Price'=>'required','image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+        //validate function does server side validation of required input fields
+        $request->validate(['Firstname'=>'required | min:0 | max:100',
+        'type'=>'required',
+        'Surname'=>'required | min:0 | max:100',
+        'Title'=>'required | min:0 | max:255',
+        'PagesDurationPEGI'=>'required',
+        'Price'=>'required',
+        'image'=>'required|image|mimes:jpg,png,jpeg,gif,svg|max:2028']);
+
+        //add time to request image to make it unique
         $Imagename=time().$request->image->extension();
+        //move function move the image into image folder inside public folder
         $request->image->move(public_path('images'),$Imagename);
-        $data=product::find($id);
-        
+
+        //find the related id from product model
+        $data=Product::find($id);
+        //passing value from request attribute from form and store into db column
         $data->firstname=$request->Firstname;
         $data->mainname=$request->Surname;
         $data->producttype=$request->type;
@@ -100,10 +129,14 @@ class Rcontroller extends Controller
         $data->pdp=$request->PagesDurationPEGI;
         $data->price=$request->Price;
         $data->Image=$Imagename;
+        //save the data into database 
         $insert=$data->save();
+        //if data is save then
         if($insert){
-            return redirect('allproduct');
+            //redirect to allproduct
+            return redirect('allproduct')->with('updated','Data Updated successfull');
         }else{
+            //redirect back with error message
             return back()->with('error','data insert unsuccessfull');
         }
     }
@@ -113,10 +146,13 @@ class Rcontroller extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * deleted the selected passed id
      */
     public function destroy($id)
     {
+        //find function find the id from product model 
         product::find($id)->delete();
+        //redirect to allproduct view after delete
         return redirect('allproduct');
     }
 }

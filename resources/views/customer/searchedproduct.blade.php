@@ -33,7 +33,9 @@
           <div class="col-md-3 py-2 col-sm-6 col-xs-12">
             <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
                  <div class="card shadow">
-                     <img src="{{asset('/images/'.$item->Image)}}" style="height:250px;" class="card-img-top p-1" alt="...">
+                    <?php $image = str_replace('public/images\\', '', $item->Image) ?>
+                    <img class="img-fluid d-block w-100" src={{ "/images/" . $image }}
+                        style="height: 250px;" alt="product image">
                      <div class="card-body">
                        <h5 class="card-title">{{$item->mainname}}</h5>
                        <p class="card-text user-select-none">{{$item->title}}</p>

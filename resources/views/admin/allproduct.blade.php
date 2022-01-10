@@ -15,6 +15,11 @@
      {{Session::get('success')}}
   </div>
   @endif
+  @if(Session::has('updated'))
+  <div class="alert alert-success" role="alert">
+     {{Session::get('updated')}}
+  </div>
+  @endif
 <div class="table-responsive">
   <table class="table table-dark">
     <thead>
