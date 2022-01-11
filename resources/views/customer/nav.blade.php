@@ -1,13 +1,18 @@
 <?php 
+//use cartController
 use App\Http\Controllers\cartController;
+//set initial value to zero
 $total=0;
+//if user is auth
 if(auth()->user()){
+  //fetch total number
   $total=cartController::countcartitem();
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+  <!--head-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,25 +22,32 @@ if(auth()->user()){
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
    
-    <title>Document</title>
+    <title>homepage</title>
+    <!--head-->
 </head>
 <body>
+  <!--nav-->
   <header class="sticky-top" >
     <div class="container-fluid bg-dark text-white ">
       <div class="container">
         <div class="row py-1 d-flex justify-content-between">
           <div class="col-md-6">
             <div class="register_link">
+              <!--guest can access-->
             @guest
                <span>If you are new user than <a href="{{ route('register') }}" style="color: white;">Register</a></span>
             @endguest
+            <!--end guest-->
+            <!-- if auth than can access-->
             @auth
                <span>Welcome back {{Auth::user()->name}} </span>
             @endauth
+            <!--end auth-->
               
             </div>
             
           </div>
+          <!--social links-->
           <div class="col-md-6 nav_social_link d-none d-md-block">
             <div class="d-flex justify-content-end">
               <a href="https://www.facebook.com/TheBritishCollege" target="_blank"><span><i class="fab fa-facebook px-1"></i></span></a>
@@ -45,12 +57,14 @@ if(auth()->user()){
             </div>
            
           </div>
+           <!--end social links-->
         </div>
       </div>
     </div>
     <div class="nav_bar" >
       <nav class="navbar navbar-expand-lg navigation navbar-dark py-4" >
         <div class="container">
+           <!--nav logo-->
           <a class="navbar-brand" href="/navbody" style="font-family: 'Lobster', cursive;font-size:25px;">leedsshop</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,7 +77,7 @@ if(auth()->user()){
                   </form>
           
                 </div>
-            
+             <!--nav links-->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
                 <a class="nav-link a" aria-current="page" href="{{route('book')}}">BOOK</a>
@@ -103,7 +117,7 @@ if(auth()->user()){
                 <a class="nav-link d-flex active" href="{{route('cart')}}"><i class="fa fa-shopping-cart mt-1" aria-hidden="true"></i><span>Cart</span><span>({{$total}})</span></a>
               </li>
             </ul>
-           
+            <!--nav end-->
           </div>
         </div>
       </nav>
@@ -119,3 +133,5 @@ if(auth()->user()){
         </div>
       </div>
       </div>
+
+<!--nav end-->

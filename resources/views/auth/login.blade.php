@@ -1,5 +1,8 @@
+<!--layout -->
 <x-guest-layout>
+    <!--card -->
     <x-auth-card>
+        <!--logo -->
         <x-slot name="logo">
             <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
@@ -9,8 +12,9 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <!--form start -->
         <form method="POST" action="{{ route('login') }}">
+            <!--make token as hidden input type -->
             @csrf
 
             <!-- Email Address -->
@@ -36,16 +40,21 @@
             </div>
            
             
-
+         <!--Script--> 
             <script>
                 function myFunction() {
+                    //get id from input type
                     var x = document.getElementById("password");
+                    //if eye button is clicked then
                     if (x.type === "password") {
+                        //input will change into text
                         x.type = "text";
                     } else {
+                        //input as password
                         x.type = "password";
                     }
                 }
+                //end script
             </script>
 
 
@@ -63,15 +72,19 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
+                <!--button for login -->
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>
             </div>
+            <!--admin login page redirect links -->
             <div class="mt-4">
                 <span class="ml-2 text-sm text-gray-600">If your are admin then!<a href="{{route('admin.login')}}">Signin</a></span>
             </div>
            
         </form>
+        <!--end form -->
     </x-auth-card>
+    <!--end-card -->
 </x-guest-layout>
+<!--end layout -->

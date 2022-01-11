@@ -78,6 +78,7 @@ class OrderController extends Controller
         ->get();
         //data are store in order key with the help of order value
         return view('customer/orderdisplay',['order'=>$orders]);
+        
     }
 
 
@@ -96,6 +97,7 @@ class OrderController extends Controller
         ->join('products','orders.product_id','=','products.id')
         ->where('orders.user_id',$user)
         ->get();
+        Order::where('user_id',$user)->delete();
         /**
          * PDFDom is a wrapper for laravel 
          * it convert HTML to PDF

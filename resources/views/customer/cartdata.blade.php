@@ -1,7 +1,11 @@
+<!--extends layout -->
 @extends('Layout')
+<!--section content -->
 @section('content')
+<!--if $product varibale contain more than or equal to one -->
 @if(count($product)>=1)
 <div class="container py-5">
+  <!--session message -->
   @if(Session::has('success'))
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     {{Session::get('success')}}
@@ -9,9 +13,13 @@
   </div>
 
   @endif
+  <!--bootstrap class to make table responsive -->
   <div class="table-responsive">
+    <!--table to display product details -->
    <table class="table table-dark text-center">
+    <!--table header -->
     <thead>
+
       <tr>
         <th scope="col">Image</th>
         <th scope="col">Producttype</th>
@@ -22,10 +30,14 @@
         <th scope="col"></th>
       </tr>
     </thead>
+    <!--end table header-->
     <tbody>
+      <!--foreach to display collection of data -->
         @foreach ($product as $item)
         <tr>
-            <td><img src="{{asset('/images/'.$item->Image)}}" style="height: 100px;width:100px;"></td>
+            <td> <?php $image = str_replace('public/images\\', '', $item->Image) ?>
+              <img class="img-fluid align-middle" src={{ "/images/" . $image }}
+                  style="height: 100px;" alt="product image"></td>
             <td class="align-middle">{{$item->producttype}}</td>
             <td class="align-middle">{{$item->title}}</td>
             <td class="align-middle">{{$item->firstname}}</td>
@@ -34,23 +46,23 @@
           </tr>
             
         @endforeach
+        <!--end for each -->
      
     </tbody>
   </table> 
+  <!--end table -->
   
 
 </div>
+<!--link to check the order -->
 <a class="btn btn-secondary" href="/order">Check Order</a>
 </div>
-    
+<!-- else -->
 @else
-    
-
-
-
-
+<!--shopping cart is empty will display -->    
 <div class="container pt-5">
   <div class="shopCard">
+    <!--title -->
       <h1 id="htmltr1" >Shopping Cart</h1>
   </div>
 
@@ -58,7 +70,7 @@
   <br>
   <br>
 
-
+  <!--messages -->
   <div class="emtycaed" id="empty">
       <i class="fas fa-shopping-cart"></i> <br>
       <h1>YOUR SHOPPING CART IS EMPTY</h1>
@@ -70,5 +82,7 @@
   </div>
 
 </div>
+<!--end if -->
 @endif 
+<!--end section -->
 @endsection

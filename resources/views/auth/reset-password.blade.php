@@ -1,13 +1,17 @@
+<!--layout -->
 <x-guest-layout>
+    <!--card -->
     <x-auth-card>
+        <!--logo-->
         <x-slot name="logo">
             <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <!--form-->
         <form method="POST" action="{{ route('password.update') }}">
+            <!--create input type hidden -->
             @csrf
 
             <!-- Password Reset Token -->
@@ -35,12 +39,15 @@
                                     type="password"
                                     name="password_confirmation" required />
             </div>
-
+            <!--reset password button -->
             <div class="flex items-center justify-end mt-4">
                 <x-button>
                     {{ __('Reset Password') }}
                 </x-button>
             </div>
+            <!--end form -->
         </form>
+        <!--end card -->
     </x-auth-card>
+<!--end layout -->    
 </x-guest-layout>

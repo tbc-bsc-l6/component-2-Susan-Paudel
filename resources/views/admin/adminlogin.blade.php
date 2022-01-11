@@ -1,8 +1,10 @@
+ <!-- guest-layout -->
 <x-guest-layout>
+     <!-- auth-card -->
     <x-auth-card>
+        <!--logo display-->
         <x-slot name="logo">
-            <a href="/">
-            </a>
+            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
             Admin Login
         </x-slot>
 
@@ -11,7 +13,7 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <!--form with method and action-->
         <form method="POST" action="{{ route('admin.adminlogin') }}">
             @csrf
 
@@ -38,13 +40,16 @@
             </div>
            
             
-
+            <!--script to make password input type text or password-->
             <script>
                 function myFunction() {
                     var x = document.getElementById("password");
+                    //if eye option is clicked then password will converted into text
                     if (x.type === "password") {
                         x.type = "text";
-                    } else {
+                    }
+                    //else input field is password 
+                    else {
                         x.type = "password";
                     }
                 }
@@ -58,6 +63,9 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+             <!-- End form -->
         </form>
+         <!-- end auth card -->
     </x-auth-card>
+<!-- End-guest-layout -->
 </x-guest-layout>

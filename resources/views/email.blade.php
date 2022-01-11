@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--email send-->
     <title>Email send</title>
+    <!--inline css-->
     <style>
         .container_email{
             margin:0px auto;
@@ -26,6 +28,7 @@
         </style>
 </head>
 <body>
+    <!--display email send tramplate-->
     <div class="container_email">
         <h1>Hello Admin</h1>
         <div class="body_email">
@@ -34,7 +37,7 @@
         
             <h3>User information:</h3><br>
             
-            
+            <!--display content using required variable-->
                 <span class="header_email">Name: </span><br>
                 <span>{{ $fullname }}</span><br>
                     <span class="header_email">Email: </span><br>
@@ -48,7 +51,7 @@
         
        <h2> Thank you</h2>
     </div>
-    
+    <!--end email-->
 </body>
 </html>
 

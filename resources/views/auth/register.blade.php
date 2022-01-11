@@ -1,13 +1,17 @@
+<!--layout -->
 <x-guest-layout>
+    <!--card -->
     <x-auth-card>
+        <!--logo -->
         <x-slot name="logo">
             <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <!--form -->
         <form method="POST" action="{{ route('register') }}">
+            <!--balde csrf display token -->
             @csrf
 
             <!-- Name -->
@@ -42,17 +46,19 @@
                                 type="password"
                                 name="password_confirmation" required />
             </div>
+            <!--phone number -->
             <div class="mt-4">
                 <x-label for="phonenumber" :value="__('Phonenumber')" />
 
                 <x-input id="phonenumber" class="block mt-1 w-full" type="text" name="phonenumber" :value="old('phonenumber')" required />
             </div>
+            <!--Location -->
             <div class="mt-4">
                 <x-label for="location" :value="__('Location')" />
 
                 <x-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required />
             </div>
-
+           <!--register page redirect links -->
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
@@ -62,6 +68,7 @@
                     {{ __('Register') }}
                 </x-button>
             </div>
+            <!--display some information -->
             <div>
                 <p class="text-lead pt-3 ps-4">Password must contains</p>
                 <ul class="row">
@@ -72,6 +79,9 @@
                     <li class="col-12 list-group-item border-0">at least one symbol[ !, $, #, or %]</li>
                 </ul>
                 </div>
+                <!--end form -->
         </form>
+        <!--end card -->
     </x-auth-card>
+    <!--end layout -->
 </x-guest-layout>

@@ -1,27 +1,42 @@
+ <!-- Extaneds adminlayout -->
 @extends('adminLayout')
+ <!-- section name allproduct -->
 @section('allproduct')
+ <!-- conatiner -->
 <div class="container py-5">
   <div class="insert_tab d-flex justify-content-between bg-light p-3">
+     <!-- insert data text -->
     <div class="insert">
       <h1>Insert data</h1>
     </div>
+     <!-- button for add product -->
     <div class="button">
         <a href="/insertform"><button type="button" class="btn btn-outline-dark mt-2" >Add Product</button></a>
       
     </div>
+     <!-- end button -->
   </div>
+   <!-- If session success is set then -->
   @if(Session::has('success'))
   <div class="alert alert-success" role="alert">
+     <!-- display message that is store in success -->
      {{Session::get('success')}}
   </div>
   @endif
+   <!-- end if -->
+  <!-- If session update is called -->
   @if(Session::has('updated'))
   <div class="alert alert-success" role="alert">
+     <!-- display message store in update variable -->
      {{Session::get('updated')}}
   </div>
   @endif
+   <!-- end if -->
+<!-- table responsive is bootstrap class that make table responsive  -->
 <div class="table-responsive">
+   <!-- Table start -->
   <table class="table table-dark">
+     <!-- table header -->
     <thead>
       <tr>
         <th scope="col">Image</th>
@@ -35,9 +50,13 @@
        
       </tr>
     </thead>
+     <!-- table header close -->
+      <!-- table body start -->
     <tbody>
+       <!-- for each loop used to store collection of data -->
         @foreach ($data as $item)
         <tr>
+          <!-- table data start -->
             <td class="align-middle"><img src="{{asset('/images/'.$item->Image)}}" style="height: 50px;width:50px;"></td>
             <td class="align-middle">{{$item->producttype}}</td>
             <td class="align-middle">{{$item->mainname}}</td>
@@ -53,14 +72,18 @@
                <button class="btn btn-danger" type="submit">Delete</button></a>
               </form>
             </td>
+            <!-- table data end -->
           </tr>
-            
+         <!-- end for loop-->   
         @endforeach
-     
+         
+     <!-- table body end -->
     </tbody>
+    <!-- table end -->
   </table>
 </div>
-  
+  <!-- for pagination -->
   {{ $data->links() }}
 </div>
+<!-- end section  -->
   @endsection 

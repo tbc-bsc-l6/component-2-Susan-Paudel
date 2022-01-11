@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Product Details</title>
+  <!--inline css -->
   <style>
     body{
       background: rgb(255, 251, 251);
@@ -20,7 +21,7 @@
     }
     .insert{
       display: flex;
-      
+      flex-flow: wrap;
       justify-content: space-around;
     }
     .insert a{
@@ -59,15 +60,20 @@
   color: white;
 }
   </style>
+  <!--css end -->
 </head>
+<!--body -->
 <body>
+  <!--header content -->
   <div class="container py-5">
       <div class="insert">
         <h1>Order Products</h1>
         <a href="/downlaodpdf"><button type="submit">Download PDF</button></a>
       </div>
-   
+   <!--end header content -->
+   <!-- table-->
   <table border="1" class="table table-dark" id="customers">
+    <!--table head -->
       <thead>
         <tr>
           <th scope="col">producttype</th>
@@ -78,7 +84,9 @@
           <th scope="col">price</th>
         </tr>
       </thead>
+      <!--table head end -->
       <tbody>
+        <!-- display collection of data-->
           @foreach ($order as $item)
           <tr>
               <td>{{$item->producttype}}</td>
@@ -90,10 +98,12 @@
             </tr>
               
           @endforeach
-       
+       <!--end foreach -->
       </tbody>
-    </table>  
+    </table> 
+    <!--end table --> 
   </div>
 
 </body>
+<!--end body -->
 </html>
