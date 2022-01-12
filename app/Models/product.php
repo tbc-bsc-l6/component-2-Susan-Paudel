@@ -15,5 +15,11 @@ class product extends Model
      * The attributes that should be mutated to fillable.
      * @var array<int, string>
      */
-    protected $guarded=[];
+    protected $fillable=['producttype',
+    'mainname',
+    'pdp',
+    'firstname',
+    'title',
+    'price',
+    'Image'];
 }

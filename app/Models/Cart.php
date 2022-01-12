@@ -13,7 +13,8 @@ class Cart extends Model
      *
      * @var array<int, string>
      */
-    protected $guarded=[];
+    protected $fillable=['Product_id',
+    'User_id'];
 
     
     public function User()

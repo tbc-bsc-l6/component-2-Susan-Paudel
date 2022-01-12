@@ -2,6 +2,31 @@
 @extends('Layout')
 <!--section navbody -->
 @section('navbody')
+    <!--session message-->
+    @if (Session::has('message'))
+    <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
+@endif
+   <!--session message -->
+   @if(Session::has('emailsent'))
+   <div class="alert alert-success text-center" role="alert">
+     {{Session::get('emailsent')}}
+   </div>
+   @endif
+ <!--Session message -->
+ @if (Session::has('success'))
+ <div class="alert alert-info text-center" role="alert">
+  {{Session::get('success')}}
+ </div>
+ @endif
+  <!--session message-->
+@error('email_address')
+<div class="alert alert-warning text-center" role="alert">{{$message}}</div>
+@enderror
+<!--session message-->
+@if(Session::has('singed'))
+<div class="alert alert-success text-center" role="alert">{{Session::get('singed')}}</div>
+@endif
+<!--display the collection of data -->
 <!--image carousel -->
 <div id="carouselExampleFade" class="carousel slide carousel-fade pb-3" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -81,11 +106,6 @@
     </div>
     
         <div class="row py-5">
-            <!--session message-->
-          @if (Session::has('message'))
-               <div class="alert alert-info text-center">{{ Session::get('message') }}</div>
-          @endif
-          <!--display the collection of data -->
           @foreach ($data as $item)
           <div class="col-md-3 py-2 col-sm-6 col-xs-12">
             <a href="/details/{{$item->id}}" style="text-decoration: none;color:gray;">
@@ -131,12 +151,6 @@
         </div>
         <div class="row py-5">
             <div class="col-md-6 pt-2">
-                <!--session message -->
-              @if(Session::has('emailsent'))
-              <div class="alert alert-success" role="alert">
-                {{Session::get('emailsent')}}
-              </div>
-              @endif
                 <!--form-->
                   <div class="form row">
                     <form action="/emailsend" method="POST">
@@ -211,16 +225,10 @@
 <!--Newsletter start -->
 <div class="newsletter py-5" style="background:rgb(223, 226, 228);">
   <div class="container py-5">
-    <div class="row justify-content-center text-center">
+    <div class="row justify-content-center text-center py-5">
         <h1>Stay in touch with the latest products</h1>
         <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
         <p>Promise to keep the inbox clean. No bugs.</p>
-          <!--Session message -->
-        @if (Session::has('success'))
-        <div class="alert alert-info" role="alert">
-         {{Session::get('success')}}
-        </div>
-        @endif
           <!--form -->
         <form action="/newsletter" method="POST" class="d-flex justify-content-center py-3">
             <!--generate token -->
@@ -232,16 +240,6 @@
        
         </form>
           <!--end form-->
-        <div>
-            <!--session message-->
-          @error('email_address')
-          <span style="color:red">{{$message}}</span>
-      @enderror
-        <!--session message-->
-      @error('email_address')
-      <span style="color:red">{{$message}}</span>
-      @enderror
-        </div>
     </div>
   </div>
 </div>

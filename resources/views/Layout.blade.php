@@ -41,7 +41,7 @@ if(auth()->user()){
             <div class="register_link">
               <!--if guest access then-->
             @guest
-               <span>If you are new user than <a href="{{ route('register') }}" style="color: white;">Register</a></span>
+               <span>If you are new user then <a href="{{ route('register') }}" style="color: white;">Register</a></span>
             @endguest
             <!--end guest-->
             <!--if user access-->
@@ -78,7 +78,7 @@ if(auth()->user()){
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="d-none d-md-block px-5 w-100">
-                  <form action="/searchedProduct" method="GET" class="input-group was-validated">
+                  <form action="/searchedProduct" method="GET" class="input-group">
                     <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for Products" name="search" value="{{request('search')}}" required >
                     <button class="btn btn-outline-light" type="submit" aria-expanded="false">Search</button>
                   
@@ -212,7 +212,7 @@ if(auth()->user()){
             <div class="col-md-12" style="border-top:1px solid white;">
                 <div class="row py-1">
                     <div class="col text-center">
-                         <p class="user-select-none mt-3"><i class="far fa-copyright"></i> 2022 Susan Paudel | All Copyrights reserved</p>
+                         <p class="user-select-none mt-3"><i class="far fa-copyright"></i> {{ date('Y') }} Susan Paudel | All Copyrights reserved</p>
                     </div>
                 </div>
             </div>

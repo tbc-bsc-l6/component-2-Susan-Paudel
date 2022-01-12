@@ -13,7 +13,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <!--form start -->
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" >
             <!--make token as hidden input type -->
             @csrf
 
@@ -79,7 +79,7 @@
             </div>
             <!--admin login page redirect links -->
             <div class="mt-4">
-                <span class="ml-2 text-sm text-gray-600">If your are admin then!<a href="{{route('admin.login')}}">Signin</a></span>
+                <span class="ml-2 text-sm text-gray-600">If you are admin then!<a href="{{route('admin.login')}}">Signin</a></span>
             </div>
            
         </form>

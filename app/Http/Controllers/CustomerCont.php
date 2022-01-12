@@ -85,14 +85,14 @@ class CustomerCont extends Controller
             ->orwhere('mainname','like','%'.$search.'%')
             ->orderBy('price');
         //if request sortBy is equal to author
-        if($request->get('sortBy') === 'author'){
+        if($request->get('sortBy') === 'title'){
             //order title as descending order
             $product->orderBy('title', 'DESC');
         }
         //if request sortBy is equal to author
-        if($request->get('sortBy') === 'price'){
+        if($request->get('sortBy') === 'mainname'){
              //order created_at as Ascending order
-            $product->orderBy('created_at', 'ASC');
+            $product->orderBy('mainname', 'ASC');
         }
         //dispaly the value into searchproduct page using data key
         return view('customer.searchedproduct',['data'=>$product->paginate(8)]);

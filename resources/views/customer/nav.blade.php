@@ -35,7 +35,7 @@ if(auth()->user()){
             <div class="register_link">
               <!--guest can access-->
             @guest
-               <span>If you are new user than <a href="{{ route('register') }}" style="color: white;">Register</a></span>
+               <span>If you are new user then <a href="{{ route('register') }}" style="color: white;">Register</a></span>
             @endguest
             <!--end guest-->
             <!-- if auth than can access-->

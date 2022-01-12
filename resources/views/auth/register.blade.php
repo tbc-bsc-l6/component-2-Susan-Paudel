@@ -70,7 +70,7 @@
             </div>
             <!--display some information -->
             <div>
-                <p class="text-lead pt-3 ps-4">Password must contains</p>
+                <p class="text-lead pt-3 ps-1">Password must contains</p>
                 <ul class="row">
                     <li class="col-6 list-group-item border-0">at least 8 characters.</li>
                     <li class="col-6 list-group-item border-0">at least one uppercase</li>

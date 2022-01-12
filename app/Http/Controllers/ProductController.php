@@ -153,6 +153,6 @@ class ProductController extends Controller
         //find function find the id from product model 
         product::find($id)->delete();
         //redirect to allproduct view after delete
-        return redirect('allproduct');
+        return back()->with('delete','Product deleted');
     }
 }

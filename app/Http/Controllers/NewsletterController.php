@@ -38,6 +38,6 @@ class NewsletterController extends Controller
         ]);
     }
     //redirect back with success message 
-    return back()->with('success','You are signed up for our newsletters');
+    return back()->with('singed','You are signed up for our newsletters');
 }
 }

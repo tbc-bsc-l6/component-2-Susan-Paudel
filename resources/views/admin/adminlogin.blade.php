@@ -4,8 +4,8 @@
     <x-auth-card>
         <!--logo display-->
         <x-slot name="logo">
-            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
-            Admin Login
+            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a><br>
+            <div class="d-flex justify-content-center">Admin Login</div>
         </x-slot>
 
         <!-- Session Status -->
@@ -65,6 +65,9 @@
             </div>
              <!-- End form -->
         </form>
+        <div class="">
+            <span>If you are User <a href="{{route('login')}}">signin</a></span>
+        </div>
          <!-- end auth card -->
     </x-auth-card>
 <!-- End-guest-layout -->

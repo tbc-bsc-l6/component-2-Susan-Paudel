@@ -24,6 +24,13 @@
   </div>
   @endif
    <!-- end if -->
+     <!-- If session success is set then -->
+  @if(Session::has('delete'))
+  <div class="alert alert-warning" role="alert">
+     <!-- display message that is store in success -->
+     {{Session::get('delete')}}
+  </div>
+  @endif
   <!-- If session update is called -->
   @if(Session::has('updated'))
   <div class="alert alert-success" role="alert">

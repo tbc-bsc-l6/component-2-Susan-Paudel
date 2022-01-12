@@ -14,5 +14,8 @@ class emailsend extends Model
      *
      * @var array<int, string>
      */
-    protected $guarded=[];
+    protected $fillable=['fullname',
+    'email',
+    'title',
+    'message'];
 }

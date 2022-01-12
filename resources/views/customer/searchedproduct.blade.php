@@ -18,8 +18,8 @@
               <div class="me-2"> 
                 <select class="form-select" name="sortBy" aria-label="Default select example">
                     <option value="" selected>Sort The Product</option>
-                    <option value="author">By Author</option>
-                    <option value="price">By Price</option>
+                    <option value="title">By Title</option>
+                    <option value="mainname">By Main Name</option>
                 </select>
 
               </div>

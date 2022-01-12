@@ -43,7 +43,7 @@
             <div class="col-md-12" style="border-top:1px solid white;">
                 <div class="row py-1">
                     <div class="col text-center">
-                         <p class="user-select-none mt-3"><i class="far fa-copyright"></i> 2022 Susan Paudel | All Copyrights reserved</p>
+                         <p class="user-select-none mt-3"><i class="far fa-copyright"></i> {{ date('Y') }} Susan Paudel | All Copyrights reserved</p>
                     </div>
                 </div>
             </div>
