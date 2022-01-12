@@ -14,8 +14,10 @@ class emailsend extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable=['fullname',
-    'email',
-    'title',
-    'message'];
+    protected $fillable = [
+        'fullname',
+        'email',
+        'title',
+        'message'
+    ];
 }

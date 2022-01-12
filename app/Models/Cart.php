@@ -8,15 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
-      /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $fillable=['Product_id',
-    'User_id'];
+    protected $fillable = [
+        'Product_id',
+        'User_id'
+    ];
 
-    
+
     public function User()
     {
         return $this->belongsTo(User::class);

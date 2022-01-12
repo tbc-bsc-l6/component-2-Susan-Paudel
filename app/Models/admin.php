@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class Admin extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
-    protected $guard='admin';
+    protected $guard = 'admin';
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +26,7 @@ class Admin extends Authenticatable implements MustVerifyEmail
         'location',
         'role',
     ];
-    
+
 
     /**
      * The attributes that should be hidden for serialization.

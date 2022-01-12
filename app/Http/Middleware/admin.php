@@ -17,10 +17,10 @@ class admin
      */
     public function handle(Request $request, Closure $next)
     {
-       //if not Auth is admin then 
-        if(!Auth::guard('admin')->check()){
+        //if not Auth is admin then 
+        if (!Auth::guard('admin')->check()) {
             //redirect to admin login page from view
-           return redirect()->route('admin.login');
+            return redirect()->route('admin.login');
         }
         //return next request
         return $next($request);

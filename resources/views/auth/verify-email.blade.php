@@ -4,7 +4,8 @@
     <x-auth-card>
         <!--logo -->
         <x-slot name="logo">
-            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
+            <a class="navbar-brand" href="/"
+                style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
         <!--Message -->
         <div class="mb-4 text-sm text-gray-600">
@@ -16,7 +17,7 @@
                 {{ __('A new verification link has been sent to the email address you provided during registration.') }}
             </div>
         @endif
-        
+
         <div class="mt-4 flex items-center justify-between">
             <!--form -->
             <form method="POST" action="{{ route('verification.send') }}">
@@ -28,20 +29,20 @@
                         {{ __('Resend Verification Email') }}
                     </x-button>
                 </div>
-            <!--end form -->    
+                <!--end form -->
             </form>
             <!--form for logout button -->
             <form method="POST" action="{{ route('logout') }}">
                 <!--token create -->
                 @csrf
-               <!--button -->
+                <!--button -->
                 <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
                     {{ __('Log Out') }}
                 </button>
-            <!--end form -->    
+                <!--end form -->
             </form>
         </div>
         <!--end card -->
     </x-auth-card>
-<!--error layout -->    
+    <!--error layout -->
 </x-guest-layout>

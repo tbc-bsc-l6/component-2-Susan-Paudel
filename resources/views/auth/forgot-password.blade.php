@@ -4,9 +4,10 @@
     <x-auth-card>
         <!--logo -->
         <x-slot name="logo">
-            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
+            <a class="navbar-brand" href="/"
+                style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
-      <!--message -->
+        <!--message -->
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
@@ -25,7 +26,8 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required
+                    autofocus />
             </div>
             <!--reset password buton -->
             <div class="flex items-center justify-end mt-4">

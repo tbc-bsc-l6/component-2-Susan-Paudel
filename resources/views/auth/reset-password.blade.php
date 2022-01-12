@@ -4,7 +4,8 @@
     <x-auth-card>
         <!--logo-->
         <x-slot name="logo">
-            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
+            <a class="navbar-brand" href="/"
+                style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
 
         <!-- Validation Errors -->
@@ -21,7 +22,8 @@
             <div>
                 <x-label for="email" :value="__('Email')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email"
+                    :value="old('email', $request->email)" required autofocus />
             </div>
 
             <!-- Password -->
@@ -35,9 +37,8 @@
             <div class="mt-4">
                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
 
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                    type="password"
-                                    name="password_confirmation" required />
+                <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                    name="password_confirmation" required />
             </div>
             <!--reset password button -->
             <div class="flex items-center justify-end mt-4">
@@ -49,5 +50,5 @@
         </form>
         <!--end card -->
     </x-auth-card>
-<!--end layout -->    
+    <!--end layout -->
 </x-guest-layout>

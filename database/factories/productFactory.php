@@ -17,10 +17,10 @@ class productFactory extends Factory
             'producttype' => $this->faker->randomElement(['cd', 'book','game']),
             'mainname' => $this->faker->word(),
             'pdp'=>$this->faker->randomDigit(),
-            'firstname'=>$this->faker->firstname(),
+            'firstname'=>$this->faker->name(),
             'title'=>$this->faker->word(),
-            'price'=>$this->faker->numberBetween($min=1,$max=1000),
-            'Image'=>'slider1.jpg',
+            'price'=>$this->faker->numberBetween($min=1,$max=300),
+            'Image'=>'slider3.jpg',
         ];
     }
 }

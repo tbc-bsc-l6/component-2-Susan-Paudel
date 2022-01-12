@@ -9,12 +9,13 @@ use App\Models\User;
 //admin inherite the property of parent Controller
 class AdminHomeCont extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
         return view('admin/admindashboard');
     }
 
@@ -23,10 +24,11 @@ class AdminHomeCont extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function fetchadmininfo(){
-       //fetch login admin id
-       $admin=auth('admin')->user()->id;
-       return view('/admin/admindashboard',['admindata'=>admin::find($admin)]); 
+    public function fetchadmininfo()
+    {
+        //fetch login admin id
+        $admin = auth('admin')->user()->id;
+        return view('/admin/admindashboard', ['admindata' => admin::find($admin)]);
     }
 
 
@@ -39,13 +41,13 @@ class AdminHomeCont extends Controller
     public function allcustomer()
     {
         //fetch admin id
-        $customer=User::latest()->paginate(10);
-        return view('admin.allregisterdata',['details'=>$customer]);
+        $customer = User::latest()->paginate(10);
+        return view('admin.allregisterdata', ['details' => $customer]);
     }
 
 
 
-      /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

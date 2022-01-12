@@ -4,7 +4,8 @@
     <x-auth-card>
         <!--display logo-->
         <x-slot name="logo">
-            <a class="navbar-brand" href="/navbody" style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
+            <a class="navbar-brand" href="/"
+                style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a>
         </x-slot>
         <!--display messsage -->
         <div class="mb-4 text-sm text-gray-600">
@@ -13,7 +14,7 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-         <!--form -->
+        <!--form -->
         <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 
@@ -21,10 +22,8 @@
             <div>
                 <x-label for="password" :value="__('Password')" />
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
+                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                    autocomplete="current-password" />
             </div>
             <!--button-->
             <div class="flex justify-end mt-4">

@@ -46,7 +46,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request)
     {
 
-       //if logout button is fetch
+        //if logout button is fetch
         Auth::guard('admin')->logout();
         //destroy session
         $request->session()->invalidate();
@@ -54,7 +54,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
         //return redirect to admin login page
         return redirect()->route('admin.login');
-
-        
     }
 }

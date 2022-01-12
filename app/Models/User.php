@@ -46,7 +46,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-      /**
+    /**
      * The belongs to Relationship
      * user has many relation with cart
      * @var array
