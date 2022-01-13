@@ -7,7 +7,7 @@
      <x-auth-card>
          <!--logo display-->
          <x-slot name="logo">
-             <a class="navbar-brand" href="/navbody"
+             <a class="navbar-brand" href="/"
                  style="color:#232f3e;font-family: 'Lobster', cursive;font-size:30px;">leedsshop</a><br>
              <div class="d-flex justify-content-center">Admin Login</div>
          </x-slot>

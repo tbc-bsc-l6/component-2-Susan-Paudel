@@ -18,17 +18,32 @@
                 <form action="/searchedProduct" method="get" class="d-flex justify-content-end">
                     <!--dropdown-->
                     <div class="me-2">
-                        <select class="form-select" name="sortBy" aria-label="Default select example">
-                            <option value="not" selected>Sort The Product</option>
+                        <select class="form-select" id="sortBy" name="sortBy" aria-label="Default select example" required>
+                            <option selected disabled>Sort The Product</option>
                             <option value="title">By Title</option>
                             <option value="price">By Price</option>
                         </select>
 
                     </div>
-                    <!--button-->
-                    <button type="submit" class="btn btn-secondary">Sort</button>
-                </form>
+                    <script>
+                  
+                  $(document).ready(function() {
+    // On refresh check if there are values selected
+    if (localStorage.selectVal) {
+            // Select the value stored
+        $('select').val( localStorage.selectVal );
+    }
+});
 
+// On change store the value
+$('select').on('change', function(){
+    var currentVal = $(this).val();
+    localStorage.setItem('selectVal', currentVal );
+});
+                      </script>
+                    <!--button-->
+                    <button type="submit" class="btn btn-secondary" onclick="filterMyList()">Sort</button>
+                </form>
             </div>
             <!--display line-->
             <div class="bigline"></div>
